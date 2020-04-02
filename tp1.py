@@ -24,3 +24,5 @@ if __name__ == '__main__':
     print(isEven(7))
     print(isPrime(6700417))
     print(isPrime(6088))
+    l = [1,8,2,4]
+    l[1:3] # => 8,2
