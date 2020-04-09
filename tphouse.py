@@ -16,3 +16,13 @@ plt.show()
 # Afficher la moyenne des surfaces et la mediane, en deduire s'il faut afficher l'ecart type ou un quantile
 # Afficher les loyers/m², moyenne, mediane, ecart type
 # Filtrer les points > 3 ecart types
+
+print(np.mean(loyers), np.median(loyers), np.std(loyers))
+print(np.mean(surfaces), np.median(surfaces), np.std(surfaces))
+loyerm2 = loyers / surfaces
+print(loyerm2)
+print(np.mean(loyerm2), np.median(loyerm2), np.std(loyerm2))
+std = np.std(loyerm2)
+print(len(loyerm2))
+loyerm2 = loyerm2[np.abs(loyerm2 - 37.66) < 3 * std]
+print(len(loyerm2))
