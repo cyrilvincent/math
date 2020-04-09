@@ -21,12 +21,31 @@ sigma = 20
 
 f = lambda x : 1/(np.sqrt(2*np.pi*np.power(sigma,2))) * np.exp(-np.power((x-mu),2)/(2*np.power(sigma,2)))
 
+x = np.arange(-10,10,0.01)
+
+sigmoidFn = lambda x: 1 / (1 + np.exp(x * -1))
+tanhFn = lambda x: 0.5 + 0.5 * np.tanh(x / 2)
+
 y = f(x)
 
-plt.plot(x,y)
-plt.show()
+# plt.plot(x,sigmoidFn(x))
+# plt.plot(x,tanhFn(x))
+# plt.show()
 
-# sigmoide
-# tanh
+v4 = np.random.rand(1000)
+print(v4)
+filtre = v4 < 0.5
+print(filtre)
+print(v4[filtre])
+res = v4[v4 < 0.5]
+np.save("myfile",res,True)
+res = None
+res = np.load("myfile.npy")
+print(res)
+
+
+
+# v5 = np.array([1,2,3,4])
+# print(v5[[False,True,False,True]])
 
 
