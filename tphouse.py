@@ -10,7 +10,7 @@ print(surfaces)
 
 import matplotlib.pyplot as plt
 plt.scatter(surfaces, loyers)
-plt.show()
+
 
 # Afficher la moyenne des loyers et la mediane, en deduire s'il faut afficher l'ecart type ou un quantile
 # Afficher la moyenne des surfaces et la mediane, en deduire s'il faut afficher l'ecart type ou un quantile
@@ -26,3 +26,12 @@ std = np.std(loyerm2)
 print(len(loyerm2))
 loyerm2 = loyerm2[np.abs(loyerm2 - 37.66) < 3 * std]
 print(len(loyerm2))
+
+import scipy.stats as stats
+slope, intercept, r_value, p_value,std_err = stats.linregress(surfaces, loyers)
+print(slope, intercept, r_value, p_value,std_err)
+# f(x) = 41x - 283
+f = lambda x : slope * x + intercept
+
+plt.plot(np.arange(400), f(np.arange(400)))
+plt.show()
