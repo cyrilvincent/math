@@ -8,6 +8,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 data = np.load("data/mesures/mesures.npz")
 mesures = data["mesures"]
-print(mesures[:,2])
-#plt.plot(mesures[:,2])
-#plt.show()
+plt.plot(mesures[:,4])
+
+noise = 1
+res1 = mesures[np.abs(mesures[:,2] - mesures[:,4]) > 1]
+plt.scatter(res1[:,0], res1[:,4])
+plt.show()
+
+res2 = mesures[np.power(mesures[:,2] - mesures[:,4], 2) > 1]
