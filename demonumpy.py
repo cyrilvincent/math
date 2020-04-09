@@ -38,10 +38,10 @@ filtre = v4 < 0.5
 print(filtre)
 print(v4[filtre])
 res = v4[v4 < 0.5]
-np.save("myfile",res,True)
+np.savez("myfile.npz",res = res,v1 = v1)
 res = None
-res = np.load("myfile.npy")
-print(res)
+data = np.load("myfile.npz")
+print(data["res"])
 
 
 
