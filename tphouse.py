@@ -35,3 +35,10 @@ f = lambda x : slope * x + intercept
 
 plt.plot(np.arange(400), f(np.arange(400)))
 plt.show()
+
+# Rejouer tphouse
+# Filtrer les loyers > 3 * et recalculer la regression linéaire
+# f(x) = ax2 + bx + c
+# f(x) = ax3 + bx2 + cx + d
+
+
