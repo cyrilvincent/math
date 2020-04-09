@@ -43,6 +43,8 @@ res = None
 data = np.load("myfile.npz")
 print(data["res"])
 
+print(np.dot(np.array([1,2]),np.array([3,4])))
+
 
 
 # v5 = np.array([1,2,3,4])
