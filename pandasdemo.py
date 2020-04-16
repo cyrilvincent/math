@@ -11,3 +11,5 @@ dataframe = dataframe[np.abs((41 * dataframe.surface - 283) - dataframe.loyer) <
 
 plt.scatter(dataframe.surface, dataframe.loyer)
 plt.show()
+
+
