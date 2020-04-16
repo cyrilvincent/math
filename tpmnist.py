@@ -4,7 +4,7 @@ with np.load("data/mnist/mnist.npz", allow_pickle=True) as f:
     x_train, y_train = f['x_train'], f['y_train']
     x_test, y_test = f['x_test'], f['y_test']
 
-sample = np.random.randint(60000, size=5000)
+sample = np.random.randint(60000, size=60000)
 x_train = x_train[sample]
 y_train = y_train[sample]
 
@@ -16,7 +16,7 @@ import sklearn.neighbors as nn
 # import sklearn.ensemble as rf
 # model = rf.RandomForestClassifier()
 import sklearn.neural_network as nn
-model = nn.MLPClassifier(hidden_layer_sizes=(700, 500,200)) # 784,50,50,10
+model = nn.MLPClassifier(hidden_layer_sizes=(700, 500, 200)) # 784,50,50,10
 model.fit(x_train, y_train)
 score = model.score(x_test, y_test)
 print('Score: %f' % score)

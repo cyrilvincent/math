@@ -10,11 +10,15 @@ import pandas as pd
 import sklearn.neighbors as nn
 import sklearn.ensemble as rf
 import sklearn.neural_network as nn
+import sklearn.preprocessing as preprocess
 
 data = pd.read_csv("data/breast-cancer/data.csv")
 data = data.drop("id", 1)
 y = data['diagnosis']
 x = data.drop("diagnosis", 1)
+scaler = preprocess.StandardScaler()
+scaler.fit(x) # Pour chaque colonne il calcul mean et std
+x = scaler.transform(x)  # il applique (x - mean) / std
 print(x.shape)
 #model = nn.KNeighborsClassifier(n_neighbors=3)
 #model = rf.RandomForestClassifier()
@@ -27,3 +31,5 @@ print((model.predict(x) - y).values)
 import matplotlib.pyplot as plt
 #plt.bar(x.columns, model.feature_importances_)
 #plt.show()
+
+fnorm = lambda x,mean,std : (x - mean) / std
