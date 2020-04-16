@@ -9,6 +9,7 @@
 import pandas as pd
 import sklearn.neighbors as nn
 import sklearn.ensemble as rf
+import sklearn.neural_network as nn
 
 data = pd.read_csv("data/breast-cancer/data.csv")
 data = data.drop("id", 1)
@@ -16,7 +17,13 @@ y = data['diagnosis']
 x = data.drop("diagnosis", 1)
 print(x.shape)
 #model = nn.KNeighborsClassifier(n_neighbors=3)
-model = rf.RandomForestClassifier()
+#model = rf.RandomForestClassifier()
+model = nn.MLPClassifier(hidden_layer_sizes=(50,50)) # 30,50,50,1
 model.fit(x, y)
 print(model.score(x,y))
 print((model.predict(x) - y).values)
+#print(model.feature_importances_)
+
+import matplotlib.pyplot as plt
+#plt.bar(x.columns, model.feature_importances_)
+#plt.show()
