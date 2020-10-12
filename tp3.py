@@ -22,8 +22,11 @@ if __name__ == '__main__':
     # res = map(lambda x : x * 2, l)
     # print(res)
 
-# l = range(100)
+l = range(100)
 # Filtrer les nb pairs
 # Filtrer les nb premiers < 100
 # Multiplier par 2 les nb premiers < 100
-
+res = list(filter(lambda x : x % 2 == 0, l))
+res = list(filter(lambda x : tp2.is_prime(x) == 0, l))
+res2 = list(map(lambda x : x * 2, res))
+print(res2)
