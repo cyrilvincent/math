@@ -5,7 +5,7 @@ def is_even(x):
 
 is_even = lambda x : x % 2 == 0
 
-def is_prime(x):
+def is_prime(x:int)->bool:
     if x < 2:
         return False
     else:
