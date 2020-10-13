@@ -1,9 +1,19 @@
+#pip install Pillow
 from PIL import Image
 import numpy as np
 
 im = Image.open("data/ski.jpg")
-a = np.asarray(im)
-print(a.shape)
-a = a.mean(axis = 2)
-print(a.shape)
-print(np.max(a))
+cube = np.asarray(im)
+print(cube.shape)
+red = cube[:,:,0]
+noiretblanc = np.mean(cube, axis = 2)
+print(noiretblanc.shape)
+print(np.max(noiretblanc))
+print(np.mean(noiretblanc))
+
+delta = np.mean(noiretblanc) - 127.5
+
+norm = np.clip(0,255, noiretblanc - delta)
+
+im = Image.fromarray(norm).convert('RGB')
+im.save("data/modified.png")
