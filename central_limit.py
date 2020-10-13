@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-nb = 1000
+nb = 10000
 matrice = np.random.rand(nb,nb)
 sommes = matrice.sum(-1)
 print(sommes)
