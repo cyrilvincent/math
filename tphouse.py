@@ -35,9 +35,9 @@ std = np.std(loyerperm2) # 9.64
 surfaces_filtre = surfaces[surfaces < 200]
 loyers_filtre = loyers[surfaces < 200]
 
-# filtre = np.abs(f(surfaces_filtre) - loyers_filtre) < 3 * f(std)
-# surfaces_filtre = surfaces_filtre[filtre]
-# loyers_filtre = loyers_filtre[filtre]
+filtre = np.abs(f(surfaces_filtre) - loyers_filtre) < 3 * std * surfaces_filtre
+surfaces_filtre = surfaces_filtre[filtre]
+loyers_filtre = loyers_filtre[filtre]
 
 coef, intercept, rvalue,pvalue,stderr = stats.linregress(surfaces_filtre, loyers_filtre)
 print(coef, intercept, rvalue,pvalue,stderr)
