@@ -7,6 +7,7 @@ cube = np.asarray(im)
 print(cube.shape)
 red = cube[:,:,0]
 noiretblanc = np.mean(cube, axis = 2)
+print(np.std(cube))
 print(noiretblanc.shape)
 print(np.max(noiretblanc))
 print(np.mean(noiretblanc))
