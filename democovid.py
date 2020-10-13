@@ -1,6 +1,7 @@
 import csv
 import matplotlib.pyplot as plt
 import numpy as np
+import scipy.optimize
 
 with open("data/covid/covid-france.txt") as f:
     reader = csv.DictReader(f)
@@ -25,5 +26,16 @@ letalite = dc_filtre / nbcas_filtre
 plt.plot(nbcas)
 plt.plot(dc)
 plt.show()
-plt.plot(letalite)
+plt.plot(dc_filtre)
+
+
+f = lambda x, a, b, c, d: a*x**3 + b * x**2 + c * x + d
+
+weights, conv = scipy.optimize.curve_fit(f,ix_filtre,dc_filtre)
+print(weights)
+print(conv)
+
+plt.plot(f(ix_filtre, weights[0],weights[1],weights[2],weights[3]))
 plt.show()
+
+
