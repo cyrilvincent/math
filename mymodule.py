@@ -48,7 +48,21 @@ def map(fn, l):
     return res
 
 def get_min_max_avg(l):
-    return 0,0,0
+    """
+
+    :param l:
+    :return:
+    """
+    min = l[0]
+    max = l[0]
+    sum = 0
+    for nb in l:
+        sum += nb
+        if nb < min:
+            min = nb
+        if nb > max:
+            max = nb
+    return min, max, sum / len(l)
 
 # tp1
 # Créer un module monmodule

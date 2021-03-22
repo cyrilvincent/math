@@ -58,10 +58,8 @@ print(l1 == l2, l1 is l2)
 l1 = l2
 print(l1 == l2, l1 is l2)
 
-def toto():
-    return 1,True
-a,b = toto()
-print(a, b)
+min, max, avg = mymodule.get_min_max_avg(range(100))
+print(min, max, avg)
 
 index = [1,2,3,4]
 l1 = ["a","b","c","d"]
