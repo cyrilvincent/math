@@ -1,9 +1,8 @@
-import math as m
+import math
 import sys
 import mymodule
 
 print("Hello World")
-print(m.pi)
 print(sys.version)
 
 iseven = 55
@@ -26,6 +25,38 @@ print(res)
 res = mymodule.filter(lambda x: mymodule.isprime(x) == 0, l1)
 print(res)
 
-res = list(filter(lambda x: mymodule.isprime(x) == 0, l1))
+res = list(filter(lambda x: mymodule.isprime(x), l1))
 print(res)
+
+res = list(map(lambda x : math.tanh(x), res))
+print(res)
+
+res = list(map(lambda x : math.tanh(x), filter(lambda x: mymodule.isprime(x), l1)))
+# Intention list <=> Comprehension list
+res = [math.tanh(x) for x in l1 if mymodule.isprime(x)]
+print(res)
+
+a = 1
+b = a
+b += 1
+print(a, b, a == b)
+
+l1 = [1,2,3]
+l2 = l1
+l2.append(4)
+print(l1, l2, l1 == l2)
+
+l1 = [1,2,3]
+l2 = list(l1)
+l2.append(4)
+print(l1, l2, l1 == l2)
+
+print([1,2] == [1,2], [1,2] is [1,2])
+l1 = [1,2,3]
+l2 = [1,2,3]
+print(l1 == l2, l1 is l2)
+l1 = l2
+print(l1 == l2, l1 is l2)
+
+
 

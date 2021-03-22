@@ -41,6 +41,12 @@ def filter(fn, l):
             res.append(elem)
     return res
 
+def map(fn, l):
+    res = []
+    for elem in l:
+        res.append(fn(elem))
+    return res
+
 # tp1
 # Créer un module monmodule
 # Créer la fonction isprime(nb:int) qui retourne True si nb est premier
