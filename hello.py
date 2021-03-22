@@ -58,5 +58,14 @@ print(l1 == l2, l1 is l2)
 l1 = l2
 print(l1 == l2, l1 is l2)
 
+def toto():
+    return 1,True
+a,b = toto()
+print(a, b)
 
+index = [1,2,3,4]
+l1 = ["a","b","c","d"]
+t2 = [1.0,2.1,-5.1,5]
+res = list(zip(index, l1, t2))
+print(res[0][1])
 

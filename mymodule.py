@@ -47,6 +47,9 @@ def map(fn, l):
         res.append(fn(elem))
     return res
 
+def get_min_max_avg(l):
+    return 0,0,0
+
 # tp1
 # Créer un module monmodule
 # Créer la fonction isprime(nb:int) qui retourne True si nb est premier
@@ -61,3 +64,7 @@ def map(fn, l):
 #Exemple filtereven([1,2,3,4]) => [2,4]
 #Créer la fonction filterprime(l) => retourne la liste filtrée des nombres premiers
 #Bonus : Essayer de créer une fonction de filtre générique
+
+#tp3
+#Programmer la fonction get_min_max_avg(l) => Tuple min, max, avg
+#A programmer avec 1 seule boucle
