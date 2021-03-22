@@ -19,6 +19,8 @@ with open("data/mesures/mesures.csv") as f:
         am.append(float(row["AM"]))
         vm.append(float(row["VM"]))
 plt.subplot(221)
+plt.xlabel("Temps")
+plt.ylabel("AT")
 plt.plot(t, at)
 plt.subplot(222)
 plt.plot(t, vt)
