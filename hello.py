@@ -70,3 +70,5 @@ t2 = [1.0,2.1,-5.1,5]
 res = list(zip(index, l1, t2))
 print(res[0][1])
 
+import numpy
+print(numpy.__version__)
