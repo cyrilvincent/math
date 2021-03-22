@@ -58,8 +58,11 @@ print(l1 == l2, l1 is l2)
 l1 = l2
 print(l1 == l2, l1 is l2)
 
-min, max, avg = mymodule.get_min_max_avg(range(100))
-print(min, max, avg)
+try:
+    min, max, avg = mymodule.get_min_max_avg([])
+    print(min, max, avg)
+except IndexError:
+    print("ERROR")
 
 index = [1,2,3,4]
 l1 = ["a","b","c","d"]
