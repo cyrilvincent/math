@@ -17,20 +17,15 @@ print(mymodule.isprime(14))
 print(mymodule.isprime(6037))
 res = mymodule.isprime(6037)
 
-l1 = [1,2,3,4,2,3,2]
-l1[3] = -1
-l3 = list(range(1000))
-l2 = []
-l1.append(99)
-print(l1)
-for _ in range(l1.count(2)):
-    l1.remove(2)
-print(l1)
+l1 = list(range(1000))
+res = mymodule.filtereven(l1)
+print(res)
+res = mymodule.filterprime(l1)
+print(res)
 
-for elem in l1:
-    print(elem)
+res = mymodule.filter(lambda x: mymodule.isprime(x) == 0, l1)
+print(res)
 
-for i in range(100):
-    l2.append(i ** 2)
-print(l2)
+res = list(filter(lambda x: mymodule.isprime(x) == 0, l1))
+print(res)
 

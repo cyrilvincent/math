@@ -20,6 +20,27 @@ def isprime(nb: int) -> bool:
             return False
     return True
 
+def filtereven(l):
+    res = []
+    for elem in l:
+        if iseven(elem):
+            res.append(elem)
+    return res
+
+def filterprime(l):
+    res = []
+    for elem in l:
+        if isprime(elem):
+            res.append(elem)
+    return res
+
+def filter(fn, l):
+    res = []
+    for elem in l:
+        if fn(elem):
+            res.append(elem)
+    return res
+
 # tp1
 # Créer un module monmodule
 # Créer la fonction isprime(nb:int) qui retourne True si nb est premier
