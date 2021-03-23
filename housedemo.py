@@ -35,8 +35,18 @@ print(slope, intercept, rvalue, pvalue, err)
 faffine = lambda surface : slope * surface + intercept
 floyer = lambda surface : 37.4 * surface
 
+slope2, intercept2, rvalue2, pvalue2, err2 = scipy.stats.linregress(surfaces[surfaces < 150], loyers[surfaces < 150])
+print(slope2, intercept2, rvalue2, pvalue2, err2)
+faffine2 = lambda surface : slope2 * surface + intercept2
+
+surffiltree = surfaces[surfaces < 150]
+filtre_ecarttype = np.abs(faffine2(surffiltree) - loyers[surfaces < 150]) < 3 * 9.11 * surffiltree
+slope3, intercept3, rvalue3, pvalue3, err3 = scipy.stats.linregress(surffiltree[filtre_ecarttype], loyers[surfaces < 150][filtre_ecarttype])
+print(slope3, intercept3, rvalue3, pvalue3, err3)
+
 plt.scatter(surfaces, loyers)
 plt.plot(np.arange(400), faffine(np.arange(400)), color="red")
+plt.plot(np.arange(200), faffine2(np.arange(200)), color="yellow")
 plt.show()
 
 # TP
