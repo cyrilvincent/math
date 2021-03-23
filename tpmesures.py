@@ -57,7 +57,7 @@ filter = ferror(vt, vm) > 1
 vfilter = vm[filter]
 t2filter = t[filter]
 vtfilter = vt[filter]
-print(list(zip(t2filter, vfilter, vtfilter)))
+print(np.array(list(zip(t2filter, vfilter, vtfilter))))
 
 # TP Afficher les erreurs
 # ferreur = |courbe theorique - courbe mesurée| > bruit = 1v ou 1a

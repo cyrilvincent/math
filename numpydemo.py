@@ -58,4 +58,14 @@ data = np.load("data.npz")
 x = data["x"]
 y = data["y"]
 plt.plot(x, y)
-plt.show()
+# plt.show()
+
+v1 = np.array([1,2])
+v2 = np.array([3,4])
+print(v1 * v2)
+print(v1.dot(v2))
+m1 = np.array([[1,2],[3,4]])
+print(m1)
+# print(m1[0])
+print(m1.shape)
+print(np.sum(m1, axis=1))
