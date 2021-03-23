@@ -29,3 +29,11 @@ plt.plot(t, am)
 plt.subplot(224)
 plt.plot(t, vm)
 plt.show()
+
+# TP Afficher les erreurs
+# ferreur = |courbe theorique - courbe mesurée| > bruit = 1v ou 1a
+# ferreur2 = (courbe theorique - courbe mesurée)² > bruit
+# Afficher les erreurs dans matplotlib
+# Créer des tableaux numpy contenant l'index des erreurs et les valeurs : filtrage (T, AM, VM)
+# Afficher ces tableaux dans un print
+# Bonus : refaire l'exo en chargeant mesures.npz
