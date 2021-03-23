@@ -47,3 +47,6 @@ plt.show()
 # Déduire si c'est gaussien, afficher la distribution des loyers par m2, afficher plot(loyers_par_m2)
 # Enlever les points > 150m²
 # recalculer le tout => Conclusion
+
+# Calculer la regression linéaire => déjà fait
+# Recalculer pour les surfaces < 150 et interpréter le résultat
