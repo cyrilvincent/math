@@ -1,5 +1,10 @@
 import csv
 import matplotlib.pyplot as plt
+import numpy as np
+
+def min_max_avg_std_median_quartile(a):
+    return np.min(a), np.max(a), np.mean(a), np.std(a), np.median(a), np.quantile(a, 0.25),  np.max(a) - np.quantile(a, 0.75)
+
 
 with open("data/house/house.csv") as f:
     reader = csv.DictReader(f)
@@ -9,7 +14,24 @@ with open("data/house/house.csv") as f:
         loyers.append(float(row["loyer"]))
         surfaces.append(float(row["surface"]))
 
+loyers = np.array(loyers)
+surfaces = np.array(surfaces)
+loyersstat = min_max_avg_std_median_quartile(loyers)
+print(loyersstat)
+surfstat = min_max_avg_std_median_quartile(surfaces)
+print(surfstat)
+loyerparm2 = loyers / surfaces
+loyerparm2stat = min_max_avg_std_median_quartile(loyerparm2)
+print(loyerparm2stat)
+filter = surfaces < 150
+loyerparm2filter = loyerparm2[filter]
+loyer_par_m2_filter_stat = min_max_avg_std_median_quartile(loyerparm2filter)
+print(loyer_par_m2_filter_stat)
+
+floyer = lambda surface : 37.4 * surface
+
 plt.scatter(surfaces, loyers)
+plt.plot(np.arange(150), floyer(np.arange(150)), color="red")
 plt.show()
 
 # TP
