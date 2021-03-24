@@ -2,7 +2,7 @@ import pandas
 import numpy as np
 import matplotlib.pyplot as plt
 
-dataframe = pandas.read_csv("data/covid/covid-france.txt")
+dataframe = pandas.read_csv("data/covid/covid-france.txt", na_values=".")
 # print(dataframe)
 
 plt.plot(dataframe["nb"], dataframe.NbCas)
@@ -17,6 +17,8 @@ dataframe_filtree["letalite"] = letalite
 print(dataframe_filtree)
 # print(np.mean(letalite))
 dataframe_filtree.to_json("data/covid/covid.json")
+
+
 
 # Avec pandas charger covid-france.txt ou covid.xlsx
 # Afficher un matplotlib en x=ix en y=nbcas et dc

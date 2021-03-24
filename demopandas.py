@@ -11,3 +11,4 @@ print(dataframe.surface)
 
 plt.scatter(dataframe.surface[dataframe.surface < 150], dataframe.loyer[dataframe.surface < 150])
 plt.show()
+
