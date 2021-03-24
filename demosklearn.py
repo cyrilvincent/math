@@ -2,14 +2,16 @@ import sklearn.linear_model as lm
 import pandas
 import matplotlib.pyplot as plt
 import numpy as np
+import sklearn.preprocessing as pp
+import sklearn.pipeline as pipe
 
 dataframe = pandas.read_csv("data/house/house.csv")
 x = dataframe.surface.values.reshape(-1, 1)
 y = dataframe.loyer
 
-model = lm.LinearRegression()
+#model = lm.LinearRegression()
+model = ...
 model.fit(x, y)
-print(model.coef_, model.intercept_)
 print(model.score(x, y))
 
 plt.scatter(dataframe.surface, y)
