@@ -21,7 +21,7 @@ x = data.drop("diagnosis", 1)
 # Si x < mediane => diviseur = 1er quartile
 # Si x > mediane => diviseur = 1 - dernier quartile
 
-scaler = preprocess.RobustScaler()
+scaler = preprocess.StandardScaler()
 scaler.fit(x)
 x = scaler.transform(x)
 

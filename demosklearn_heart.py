@@ -6,10 +6,15 @@ import matplotlib.pyplot as plt
 import sklearn.model_selection as ms
 import sklearn.ensemble as rf
 import sklearn.neural_network as nn
+import sklearn.preprocessing as preprocess
 
 data = pandas.read_csv("data/heartdisease/dataclean.csv")
 y = data.num
 x = data.drop("num",1)
+
+scaler = preprocess.StandardScaler()
+scaler.fit(x)
+x = scaler.transform(x)
 
 xtrain, xtest, ytrain, ytest = ms.train_test_split(x,y,train_size=0.8, test_size=0.2)
 
