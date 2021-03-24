@@ -10,10 +10,18 @@ import sklearn.preprocessing as preprocess
 
 data = pandas.read_csv("data/breast-cancer/data.csv", index_col="id")
 y = data.diagnosis
-x = data.drop("diagnosis",1)
+x = data.drop("diagnosis", 1)
 
+np.random.seed(0)
 xtrain, xtest, ytrain, ytest = ms.train_test_split(x,y,train_size=0.8, test_size=0.2)
 
-model = # RandomForest
-# Entrainement, score
-# Afficher les features_importances à l'écran + matplotlib
+# model = neighbors.KNeighborsClassifier(n_neighbors=3)
+model = rf.RandomForestClassifier(n_estimators=100)
+model.fit(xtrain, ytrain)
+print(model.score(xtest, ytest))
+print((model.predict(xtest) - ytest).values)
+
+print(list(zip(data.columns.values, model.feature_importances_)))
+
+plt.bar(range(len(model.feature_importances_)), model.feature_importances_)
+plt.show()
