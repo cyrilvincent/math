@@ -16,7 +16,7 @@ x_test = x_test.reshape(-1,784)
 
 np.random.seed(0)
 import sklearn.neural_network as nn
-model = nn.MLPClassifier(hidden_layer_sizes=(784, 50, 50, 10)) # 784,50,50,10
+model = nn.MLPClassifier(hidden_layer_sizes=(700, 500, 200))
 model.fit(x_train, y_train)
 score = model.score(x_test, y_test)
 print('Score: %f' % score)
