@@ -10,7 +10,7 @@ x = dataframe.surface.values.reshape(-1, 1)
 y = dataframe.loyer
 
 #model = lm.LinearRegression()
-model = ...
+model = pipe.make_pipeline(pp.PolynomialFeatures(3), lm.Ridge())
 model.fit(x, y)
 print(model.score(x, y))
 
