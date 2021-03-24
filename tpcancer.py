@@ -36,7 +36,8 @@ model.fit(xtrain, ytrain)
 print(model.score(xtest, ytest))
 print((model.predict(xtest) - ytest).values)
 
+# Uniquement pour RandomForest
 # print(list(zip(data.columns.values, model.feature_importances_)))
-
 # plt.bar(range(len(model.feature_importances_)), model.feature_importances_)
 # plt.show()
+
