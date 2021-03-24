@@ -11,6 +11,19 @@ import sklearn.preprocessing as preprocess
 data = pandas.read_csv("data/breast-cancer/data.csv", index_col="id")
 y = data.diagnosis
 x = data.drop("diagnosis", 1)
+# norm = (x.texture_mean - np.mean(x.texture_mean)) / np.std(x.texture_mean)
+# print(norm)
+
+# RobustScaler
+# Pour une colonne il va déterminer si normale
+# Si normale StandardScaler
+# Si non gaussien norm = (x - np.median(x)) / diviseur
+# Si x < mediane => diviseur = 1er quartile
+# Si x > mediane => diviseur = 1 - dernier quartile
+
+scaler = preprocess.RobustScaler()
+scaler.fit(x)
+x = scaler.transform(x)
 
 np.random.seed(0)
 xtrain, xtest, ytrain, ytest = ms.train_test_split(x,y,train_size=0.8, test_size=0.2)

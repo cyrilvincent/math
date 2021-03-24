@@ -5,6 +5,7 @@ import sklearn.neighbors as neighbors
 import matplotlib.pyplot as plt
 import sklearn.model_selection as ms
 import sklearn.ensemble as rf
+import sklearn.neural_network as nn
 
 data = pandas.read_csv("data/heartdisease/dataclean.csv")
 y = data.num
@@ -15,8 +16,9 @@ xtrain, xtest, ytrain, ytest = ms.train_test_split(x,y,train_size=0.8, test_size
 #model = lm.LinearRegression()
 #model = neighbors.KNeighborsClassifier(n_neighbors=3)
 model = rf.RandomForestClassifier(n_estimators=100)
+model = nn.MLPClassifier(hidden_layer_sizes=(10, 10))
 model.fit(xtrain, ytrain)
 print(model.score(xtest, ytest))
-print(list(zip(data.columns.values,model.feature_importances_)))
-plt.bar(range(len(model.feature_importances_)), model.feature_importances_)
-plt.show()
+# print(list(zip(data.columns.values,model.feature_importances_)))
+# plt.bar(range(len(model.feature_importances_)), model.feature_importances_)
+# plt.show()
