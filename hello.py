@@ -1,3 +1,6 @@
+import mymodule as m
+from mymodule import is_even
+
 print("Hello World")
 
 i = 2
@@ -14,11 +17,13 @@ else:
 
 for i in range(10):
     print(i)
+    if i == 5:
+        break
 
-def is_even(x):
-    if x % 2 == 0:
-        return True
-    else:
-        return False
+def is_even():
+    return "toto"
 
-print(is_even(3))
+res = m.is_even(3)
+print(res)
+res = is_even(3)
+print(res)
