@@ -36,6 +36,17 @@ if __name__ == '__main__':
 
     print(list(map(lambda x: x ** 2, filter(lambda x: m.is_prime(x), l))))
 
-    # Mapper le seul nombre premier pair
+    print(list(filter(lambda x : x % 2 == 0, filter(lambda x: m.is_prime(x), l))))
+    print(list(filter(lambda x: x % 2 == 0, filter(lambda x: x < 50 and x > 10, l))))
+    print(list(map(lambda x: math.sin(x), filter(lambda x: m.is_prime(x), l))))
+    # Filtrer le seul nombre premier pair
     # Filtrer les nombres pair compris entre 10 et 50
     # Filtrer les nombres premiers et afficher leur sinus
+
+    # <=>
+    # Intention List
+    print([math.sin(x) for x in l if m.is_prime(x)])
+
+    identity = [x for x in l]
+    to_square = [x ** 2 for x in l]
+    even_filter = [x for x in l if m.is_even(x)]
