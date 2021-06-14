@@ -35,3 +35,7 @@ if __name__ == '__main__':
     print(list(map(lambda x: math.cos(abs(x ** 0.5 + 1)), l)))
 
     print(list(map(lambda x: x ** 2, filter(lambda x: m.is_prime(x), l))))
+
+    # Mapper le seul nombre premier pair
+    # Filtrer les nombres pair compris entre 10 et 50
+    # Filtrer les nombres premiers et afficher leur sinus
