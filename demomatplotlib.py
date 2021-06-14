@@ -26,11 +26,24 @@ with open("data/house/house.csv") as f:
         surfaces.append(float(row["surface"]))
 print(loyers)
 
-plt.scatter(surfaces, loyers)
-plt.show()
+
 
 # Afficher le min max moyenne : surfaces et des loyers
 # loyer_per_m2 par une liste en intention
 # Afficher le min max moyenne de loyer_per_m2, soit a = moyenne du moyer_per_m2
 # Bonus afficher la courbe f(x) = ax
-res = [(l, s) for l, s in zip(loyers, surfaces)]
+print(f"Loyers min {min(loyers):.2f}")
+print(f"Loyers max {max(loyers):.2f}")
+print(f"Loyers moy {sum(loyers) / len(loyers):.2f}")
+print(f"Surfaces min {min(surfaces):.2f}")
+print(f"Surfaces max {max(surfaces):.2f}")
+print(f"Surfaces moy {sum(surfaces) / len(loyers):.2f}")
+loyer_per_m2 = [l / s for l, s in zip(loyers, surfaces)]
+print(loyer_per_m2)
+print(f"Loyer par m² min {min(loyer_per_m2):.2f}")
+print(f"Loyer par m² max {max(loyer_per_m2):.2f}")
+print(f"Loyer par m² moy {sum(loyer_per_m2) / len(loyer_per_m2):.2f}")
+plt.scatter(surfaces, loyers)
+estimate_loyers = [37.66 * x for x in surfaces]
+plt.plot(surfaces, estimate_loyers, color='red')
+plt.show()
