@@ -50,3 +50,7 @@ if __name__ == '__main__':
     identity = [x for x in l]
     to_square = [x ** 2 for x in l]
     even_filter = [x for x in l if m.is_even(x)]
+
+    res = list(map(lambda x: math.sin(x), filter(lambda x: m.is_prime(x), l)))
+    # A réecrire en intention list
+    
