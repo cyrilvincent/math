@@ -1,5 +1,5 @@
 import mymodule as m
-from mymodule import is_even
+# from mymodule import is_even
 
 print("Hello World")
 
@@ -20,10 +20,7 @@ for i in range(10):
     if i == 5:
         break
 
-def is_even():
-    return "toto"
-
 res = m.is_even(3)
 print(res)
-res = is_even(3)
+res = m.is_prime(7)
 print(res)

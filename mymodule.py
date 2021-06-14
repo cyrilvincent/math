@@ -5,7 +5,11 @@ def is_even(x):
         return False
 
 def is_prime(x):
-    # Un nombre premier est divisible par exactement 2 diviseurs : 1 et lui même
-    # 2,3,5,7,11,13, ...
-    # Tout nombre x > 2 est premier SAUF s'il possède un diviseur (%) compris entre [2,x-1]
-    
+    if x < 2:
+        return False
+    else:
+        for div in range(2,x):
+            if x % div == 0:
+                return False
+        return True
+
