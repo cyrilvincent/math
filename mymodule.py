@@ -13,3 +13,9 @@ def is_prime(x):
                 return False
         return True
 
+def remove_all(l, nb):
+    res = []
+    for val in l:
+        pass #TODO
+
+

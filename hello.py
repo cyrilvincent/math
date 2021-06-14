@@ -24,3 +24,12 @@ res = m.is_even(3)
 print(res)
 res = m.is_prime(7)
 print(res)
+
+# f(x) = x + 1
+f = lambda x: x + 1
+print(f(2))
+
+def f(x):
+    return x + 1
+
+m.remove_all([1,2,3,4,5,6,5,6,7,9,2], 5)
