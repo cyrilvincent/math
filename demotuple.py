@@ -1,9 +1,16 @@
 def min_max_avg(l):
-    # Renvoyer en 1 seule itération le min, max, avg
-    return 0,100,50
+    sum = 0
+    min = l[0]
+    max = l[0]
+    for val in l:
+        sum += val
+        if val < min:
+            min = val
+        elif val > max:
+            max = val
+    return min, max, sum / len(l)
 
-l = [1,2]
-len(l)
-min, max, avg = min_max_avg(2)
+l = [1,2,3,4,5,6,7,-2,-5,-99,100]
+min, max, avg = min_max_avg(l)
 print(min, max, avg)
 
