@@ -32,4 +32,5 @@ print(f(2))
 def f(x):
     return x + 1
 
-m.remove_all([1,2,3,4,5,6,5,6,7,9,2], 5)
+print(m.remove_all([1,2,3,4,5,6,5,6,7,9,2], 5))
+print(m.remove_all2([1,2,3,4,5,6,5,6,7,9,2], 5))

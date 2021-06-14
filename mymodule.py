@@ -16,6 +16,14 @@ def is_prime(x):
 def remove_all(l, nb):
     res = []
     for val in l:
-        pass #TODO
+        if val != nb:
+            res.append(val)
+    return res
+
+def remove_all2(l, nb):
+    count = l.count(nb)
+    for i in range(count):
+        l.remove(nb)
+    return l
 
 
