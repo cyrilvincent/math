@@ -53,4 +53,5 @@ if __name__ == '__main__':
 
     res = list(map(lambda x: math.sin(x), filter(lambda x: m.is_prime(x), l)))
     # A réecrire en intention list
-    
+    res = [math.sin(x) for x in l if m.is_prime(x)]
+    print(res)
