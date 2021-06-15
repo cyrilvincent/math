@@ -29,9 +29,21 @@ print(bidule)
 print(dataframe.describe())
 
 print(np.median(dataframe.loyer), np.mean(dataframe.loyer))
-print(np.quantile(dataframe.loyer, 0.25), np.quantile(dataframe.loyer, 0.75), np.mean(dataframe.loyer))
+print(np.median(dataframe.loyer), np.quantile(dataframe.loyer, 0.25), np.quantile(dataframe.loyer, 0.75))
 
-plt.scatter(dataframe.surface[dataframe.surface < 150], dataframe.loyer[dataframe.surface < 150])
+print(np.median(dataframe.loyer_per_m2), np.mean(dataframe.loyer_per_m2))
+print( np.median(dataframe.loyer_per_m2), np.quantile(dataframe.loyer_per_m2, 0.25), np.quantile(dataframe.loyer_per_m2, 0.75))
+
+res = np.array([])
+step = 100
+for x in range(400,25000,step):
+    val = dataframe.loyer[(dataframe.loyer < x + step) & (dataframe.loyer >= x)]
+    res = np.append(res, len(val))
+print(res)
+
+plt.bar(range(len(res)), res)
+
+#plt.scatter(dataframe.surface[dataframe.surface < 150], dataframe.loyer[dataframe.surface < 150])
 plt.show()
 
 
