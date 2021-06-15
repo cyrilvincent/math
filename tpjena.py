@@ -13,3 +13,6 @@ dataframe.to_csv("data/jena/jena_filtered.csv", index=False)
 
 plt.plot(dataframe["Date Time"][:365*24:24], dataframe["T (degC)"][:365*24:24])
 plt.show()
+
+# Afficher les T et les P dans des subplots
+# describe
