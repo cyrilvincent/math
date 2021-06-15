@@ -14,8 +14,9 @@ with open("data/house/house.csv") as f:
 
 loyers_array = np.array(loyers)
 surfaces_array = np.array(surfaces)
-print(loyers_array)
+loyers_per_m2 = loyers_array / surfaces_array
 
-print(loyers_array / surfaces_array)
+print(np.min(loyers_per_m2), np.max(loyers_per_m2), np.mean(loyers_per_m2))
 
-# Recalculer min, max , mean
+plt.scatter(surfaces_array, loyers_per_m2)
+plt.show()
