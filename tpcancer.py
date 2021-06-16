@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import sklearn.linear_model as lm
 
 # Charger breast-cancer/data.csv avec pandas read_csv(...,index_col="id")
 # y = dataframe["diagnosis"] 0=benin 1 = malin
@@ -26,3 +27,8 @@ print(x[malin_filter].radius_mean.describe())
 
 print(x[benin_filter].concave_points_mean.describe())
 print(x[malin_filter].concave_points_mean.describe())
+
+model = lm.LinearRegression()
+model.fit(x, y)
+print(model.coef_, model.intercept_)
+print(model.score(x, y))

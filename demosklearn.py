@@ -27,4 +27,4 @@ plt.plot(np.arange(200), predict, color='red')
 plt.show()
 
 # Reprendre cette demo et essayer plusieurs models => score
-# Faire paeil pour le cancer
+# Faire pareil pour le cancer
