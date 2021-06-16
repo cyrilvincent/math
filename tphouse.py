@@ -35,3 +35,10 @@ plt.show()
 # Recalculer la regression
 # Bonus : Heart disease calculer la regression pour x = age, y = chol
 
+# Courbe U
+# Polynome de degré 2 ou 3
+# f(x) = ax² + bx + c
+# Curvefit ax + b
+# Curvefit  f(x) = ax² + bx + c
+# Bonus 3ème degré
+# Afficher les courbes
