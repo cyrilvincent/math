@@ -1,3 +1,6 @@
+import pandas as pd
+import numpy as np
+
 # Charger breast-cancer/data.csv avec pandas read_csv(...,index_col="id")
 # y = dataframe["diagnosis"] 0=benin 1 = malin
 # x = dataframe.drop("diagnosis",1).drop("id")
@@ -10,5 +13,16 @@
 # x_benin = 0
 # x_malin = 1
 
-# Bonus
-# Heart disease
+dataframe = pd.read_csv("data/breast-cancer/data.csv", index_col="id")
+print(dataframe)
+y = dataframe.diagnosis
+x = dataframe.drop("diagnosis", 1)
+
+benin_filter = y == 0
+malin_filter = y == 1
+
+print(x[benin_filter].radius_mean.describe())
+print(x[malin_filter].radius_mean.describe())
+
+print(x[benin_filter].concave_points_mean.describe())
+print(x[malin_filter].concave_points_mean.describe())
