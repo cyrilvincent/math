@@ -25,3 +25,6 @@ print(model.score(x, y))
 plt.scatter(dataframe_filter.surface, dataframe_filter.loyer)
 plt.plot(np.arange(200), predict, color='red')
 plt.show()
+
+# Reprendre cette demo et essayer plusieurs models => score
+# Faire paeil pour le cancer
