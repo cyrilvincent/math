@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy.stats as stats
+import scipy.optimize as opt
 
 # pip install scipy
 
@@ -24,9 +25,6 @@ dataframe_filter2 = dataframe_filter[std_filter]
 slope, intercept, r_value, p_value, std_err = stats.linregress(dataframe_filter2.surface, dataframe_filter2.loyer)
 print(slope, intercept, r_value, p_value, std_err)
 
-plt.scatter(dataframe_filter2.surface, dataframe_filter2.loyer)
-plt.plot(np.arange(200), f(np.arange(200)), color='red')
-plt.show()
 
 # Interpréter le résultat
 # Filtrer les data < 200m²
@@ -42,3 +40,26 @@ plt.show()
 # Curvefit  f(x) = ax² + bx + c
 # Bonus 3ème degré
 # Afficher les courbes
+
+f1 = lambda x, a, b: a*x + b
+weights, conv = opt.curve_fit(f1, dataframe_filter2.surface, dataframe_filter2.loyer)
+print(weights)
+
+f2 = lambda x, a, b, c: a*x**2 + b*x + c
+weights, conv = opt.curve_fit(f2, dataframe_filter2.surface, dataframe_filter2.loyer)
+print(weights)
+print(conv)
+
+
+
+plt.scatter(dataframe_filter2.surface, dataframe_filter2.loyer)
+plt.plot(np.arange(200), f(np.arange(200)), color='red')
+plt.plot(np.arange(200), f2(np.arange(200), weights[0], weights[1], weights[2]), color='green')
+
+f3 = lambda x, a, b, c, d: a*x**3 + b*x**2 + c*x + d
+weights, conv = opt.curve_fit(f3, dataframe_filter2.surface, dataframe_filter2.loyer)
+print(conv)
+print(weights)
+
+plt.plot(np.arange(200), f3(np.arange(200), weights[0], weights[1], weights[2], weights[3]), color='yellow')
+plt.show()
