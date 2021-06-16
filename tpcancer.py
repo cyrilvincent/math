@@ -5,6 +5,7 @@ import sklearn.neighbors as nn
 import sklearn.model_selection as ms
 import sklearn.ensemble as rf
 import matplotlib.pyplot as plt
+import sklearn.tree as tree
 
 
 
@@ -46,3 +47,10 @@ plt.show()
 
 # print(model.coef_, model.intercept_)
 print(model.score(xtest, ytest))
+
+tree.export_graphviz(model.estimators_[0],
+                out_file='data/breast-cancer/tree.dot',
+                feature_names = x.columns,
+                class_names = ["0", "1"],
+                rounded = True, proportion = False,
+                precision = 2, filled = True)
