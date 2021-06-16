@@ -6,6 +6,8 @@ import sklearn.model_selection as ms
 import sklearn.ensemble as rf
 import matplotlib.pyplot as plt
 import sklearn.tree as tree
+import sklearn.svm as svm
+import sklearn.neural_network as nn
 
 
 
@@ -40,17 +42,21 @@ xtrain, xtest, ytrain, ytest = ms.train_test_split(x,y,train_size=0.8, test_size
 
 #model = lm.LinearRegression()
 #model = nn.KNeighborsClassifier(3)
-model = rf.RandomForestClassifier()
+#model = rf.RandomForestClassifier()
+#model = svm.SVC(C=1, kernel="rbf")
+model = nn.MLPClassifier(hidden_layer_sizes=(50,50,50))
 model.fit(xtrain, ytrain)
-plt.bar(x.columns, model.feature_importances_)
-plt.show()
+#plt.bar(x.columns, model.feature_importances_)
+#plt.show()
 
 # print(model.coef_, model.intercept_)
 print(model.score(xtest, ytest))
 
-tree.export_graphviz(model.estimators_[0],
-                out_file='data/breast-cancer/tree.dot',
-                feature_names = x.columns,
-                class_names = ["0", "1"],
-                rounded = True, proportion = False,
-                precision = 2, filled = True)
+# tree.export_graphviz(model.estimators_[0],
+#                 out_file='data/breast-cancer/tree.dot',
+#                 feature_names = x.columns,
+#                 class_names = ["0", "1"],
+#                 rounded = True, proportion = False,
+#                 precision = 2, filled = True)
+
+
