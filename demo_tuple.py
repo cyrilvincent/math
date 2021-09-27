@@ -10,3 +10,23 @@ print(a,b)
 # def min_max_avg(l):
 # Avec une boucle retourne min, max, avg
 # Tester
+
+def min_max_avg(l):
+    """
+
+    :param l:
+    :return: min, max, avg
+    """
+    min = l[0]
+    max = l[0]
+    sum = 0
+    for elem in l:
+        if elem < min:
+            min = elem
+        elif elem > max:
+            max = elem
+        sum += elem
+    return min, max, sum / len(l)
+
+min, max, avg = min_max_avg([1,2,3,4,5,6,7,8,9,10])
+print(min, max, avg)
