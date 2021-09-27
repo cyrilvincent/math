@@ -35,3 +35,14 @@ print(np.min(loyers_np), np.max(loyers_np), np.mean(loyers_np))
 print(np.min(surfaces_np), np.max(surfaces_np), np.mean(surfaces_np))
 loyer_per_m2 = loyers_np / surfaces_np
 print(np.min(loyer_per_m2), np.max(loyer_per_m2), np.mean(loyer_per_m2))
+
+t1 = np.array([1,2,3,4,5,6.])
+print(t1[[True,True,True,False,False,False]])
+print(t1 < 4)
+print(t1[t1 < 4])
+
+# Filter les surfaces et loyers par rapport surface < 200
+# Reafficher les data dans matplotlib
+# Recalculer la moyenne
+# Bonus : Afficher sur le même diagrame f(x) = ax où a = moyenne
+
