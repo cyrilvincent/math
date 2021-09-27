@@ -23,3 +23,8 @@ avg_surface = sum(surfaces) / len(surfaces)
 print(avg_surface)
 plt.scatter(surfaces, loyers)
 plt.show()
+
+# Convertir les listes python en tableau numpy
+# np.mean
+# Recalculer les moyennes
+# Calculer la moyenne du loyer/m²
