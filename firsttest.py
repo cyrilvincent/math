@@ -27,3 +27,5 @@ def is_even(x):
 
 print(is_even(7))
 print(is_even(8))
+
+is_prime = "toto"

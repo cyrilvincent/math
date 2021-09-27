@@ -2,13 +2,21 @@ def is_even(x):
     return x % 2 == 0
 
 def is_prime(x):
-    if x < 2:
-        return False
+    """
+    Calcul si un nombre est premier
+    :param x: le nombre à tester
+    :return: True or False
+    """
+    if(type(x) == int):
+        if x < 2:
+            return False
+        else:
+            for denominateur in range(2,x):
+                if x % denominateur == 0:
+                    return False
+        return True
     else:
-        for denominateur in range(2,x):
-            if x % denominateur == 0:
-                return False
-    return True
+        return False
 
 
 print(is_even(8))
