@@ -48,3 +48,7 @@ res = filter_generic(l1, premier.is_prime)
 print(res)
 res = filter_generic(l1, lambda x: x % 2 == 0)
 print(res)
+
+print(list(filter(lambda x: x % 2 == 0, l1)))
+
+print(list(map(lambda x: x+ 1, l1)))
