@@ -28,3 +28,10 @@ plt.show()
 # np.mean
 # Recalculer les moyennes
 # Calculer la moyenne du loyer/m²
+import numpy as np
+loyers_np = np.array(loyers)
+surfaces_np = np.array(surfaces)
+print(np.min(loyers_np), np.max(loyers_np), np.mean(loyers_np))
+print(np.min(surfaces_np), np.max(surfaces_np), np.mean(surfaces_np))
+loyer_per_m2 = loyers_np / surfaces_np
+print(np.min(loyer_per_m2), np.max(loyer_per_m2), np.mean(loyer_per_m2))
