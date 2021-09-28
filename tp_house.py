@@ -59,3 +59,8 @@ plt.plot(x, y, color="red")
 
 plt.scatter(surfaces_filtre, loyers_filtre)
 plt.show()
+
+np.savez("data/house/house_filtre.npz", surfaces_filtre=surfaces_filtre, loyers_filtre=loyers_filtre)
+data = np.load("data/house/house_filtre.npz")
+surfaces_filtre_2 = data["surfaces_filtre"]
+loyers_filtre_2 = data["loyers_filtre"]
