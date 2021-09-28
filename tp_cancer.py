@@ -7,7 +7,7 @@ import pandas as pd
 # Créer 2 dataframes : benin => diagnosis = 0, malin => diagnosis = 1
 # x.radius_mean.describe(), concave, texture
 
-dataframe = pd.read_csv("data/breast-cancer/data.csv",index_col="id")
+dataframe = pd.read_csv("data/breast-cancer/data.csv",index_col="id",na_values=".")
 print(dataframe)
 
 benin = dataframe[dataframe.diagnosis == 0]
