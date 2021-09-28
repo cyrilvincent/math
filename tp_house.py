@@ -41,8 +41,15 @@ print(t1[[True,True,True,False,False,False]])
 print(t1 < 4)
 print(t1[t1 < 4])
 
-# Filter les surfaces et loyers par rapport surface < 200
+# Filtrer les surfaces et loyers par rapport surface < 200
 # Reafficher les data dans matplotlib
 # Recalculer la moyenne
 # Bonus : Afficher sur le même diagrame f(x) = ax où a = moyenne
 
+filtre = surfaces_np < 200
+surfaces_filtre = surfaces_np[filtre]
+loyers_filtre = loyers_np[filtre]
+loyers_per_m2_filtre = loyers_filtre / surfaces_filtre
+print(np.mean(loyers_per_m2_filtre))
+plt.scatter(surfaces_filtre, loyers_filtre)
+plt.show()

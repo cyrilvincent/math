@@ -30,3 +30,4 @@ def min_max_avg(l):
 
 min, max, avg = min_max_avg([1,2,3,4,5,6,7,8,9,10])
 print(min, max, avg)
+_, _, avg = min_max_avg([1,2,3,4,5,6,7,8,9,10])
