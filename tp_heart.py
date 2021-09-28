@@ -20,5 +20,11 @@ ok = dataframe[dataframe.num == 0]
 ko = dataframe[dataframe.num == 1]
 print(ok.chol.describe())
 print(ko.chol.describe())
-print(ok.talach.describe())
-print(ko.talach.describe())
+print(ok.thalach.describe())
+print(ko.thalach.describe())
+
+mean_ko = np.mean(ko.chol)
+std_ko = np.std(ko.chol)
+median_ko = np.median(ko.chol)
+quantile_ko = np.quantile(ko.chol, [0.1, 0.25, 0.75, 0.9])
+print(mean_ko, std_ko, median_ko, quantile_ko)
