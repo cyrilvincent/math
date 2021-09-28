@@ -9,3 +9,19 @@ import pandas as pd
 
 dataframe = pd.read_csv("data/breast-cancer/data.csv",index_col="id")
 print(dataframe)
+
+benin = dataframe[dataframe.diagnosis == 0]
+malin = dataframe[dataframe.diagnosis != 0]
+
+print(benin.radius_mean.describe())
+print(malin.radius_mean.describe())
+
+print(benin.concavity_mean.describe())
+print(malin.concavity_mean.describe())
+
+print(benin.texture_se.describe())
+print(malin.texture_se.describe())
+
+
+
+
