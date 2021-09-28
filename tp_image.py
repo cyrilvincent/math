@@ -13,6 +13,8 @@ redt = red.T
 im2 = Image.fromarray(redt).convert(("RGB"))
 im2.save("data/modified.jpg")
 
+#  plt.imshow(matrice,cmap=plt.cm.gray_r,interpolation="nearest")
+
 # TP
 # Telecharger 2 images
 # Transformer l'image en np.array
