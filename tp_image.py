@@ -3,15 +3,39 @@ from PIL import Image
 import numpy as np
 
 im = Image.open("data/ski.jpg")
-cube = np.asarray(im)
+cube = np.asarray(im).astype("float")
 print(cube.shape)
+print(cube.dtype)
 
 red = cube[:,:,0]
 print(red.shape)
 redt = red.T
+print("Moyenne:", np.mean(red), np.min(red), np.max(red))
 
-im2 = Image.fromarray(redt).convert(("RGB"))
+crop = red[100:-100, 100:-100]
+inverse = red[-1:0:-1]
+inverse2 = red[:,-1:0:-1]
+
+crop = red[:576,:1024]
+im2 = Image.open("data/ski2.jpg")
+array2 = np.asarray(im2).astype("float")
+red2 = array2[:,:,0]
+add = (crop + red2) / 2
+
+nb = cube.mean(axis=2)
+print(nb.shape)
+
+contrast = cube.std()
+print("Contraste:", contrast)
+
+cubeminus10 = np.clip(cube * 0.9,0,255)
+
+cubeautocontrast = np.clip(cube * (64 / np.std(cube)),0,255)
+
+im2 = Image.fromarray(cubeautocontrast.astype(np.uint8)).convert("RGB")
 im2.save("data/modified.jpg")
+
+
 
 #  plt.imshow(matrice,cmap=plt.cm.gray_r,interpolation="nearest")
 
