@@ -21,6 +21,7 @@ dataframe = pd.read_csv("data/breast-cancer/data.csv",index_col="id",na_values="
 y = dataframe.diagnosis
 x = dataframe.drop("diagnosis",1)
 
+np.random.seed(1)
 xtrain, xtest, ytrain, ytest = ms.train_test_split(x,y,train_size=0.8, test_size=0.2)
 
 for i in range(1,4):
