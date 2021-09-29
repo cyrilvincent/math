@@ -2,6 +2,7 @@ import csv
 import matplotlib.pyplot as plt
 import scipy.stats as stats
 import numpy as np
+import scipy.optimize as opt
 
 loyers = []
 surfaces = []
@@ -44,6 +45,12 @@ faffine = lambda x : slope * x + intercept
 
 plt.scatter(surfaces, loyers)
 plt.plot(np.arange(400), faffine(np.arange(400)), color="green" )
+
+fpolynome = lambda x,a,b,c,d: a*x**3 + b*x**2 + c*x + d
+weigths, conv = opt.curve_fit(fpolynome, surfaces_np, loyers_np)
+print(conv)
+print(weigths)
+plt.plot(np.arange(400), fpolynome(np.arange(400), weigths[0], weigths[1],weigths[2],weigths[3]), color="red")
 plt.show()
 
 
@@ -71,6 +78,10 @@ print(slope, intercept, rvalue, pvalue, stderr)
 faffine = lambda x : slope * x + intercept
 y2 = faffine(x)
 plt.plot(x, y, color="green")
+
+
+
+
 plt.show()
 
 np.savez("data/house/house_filtre.npz", surfaces_filtre=surfaces_filtre, loyers_filtre=loyers_filtre)
