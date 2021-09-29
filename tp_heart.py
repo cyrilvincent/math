@@ -22,6 +22,8 @@ print(ok.chol.describe())
 print(ko.chol.describe())
 print(ok.thalach.describe())
 print(ko.thalach.describe())
+print(ok.age.describe())
+print(ko.age.describe())
 
 mean_ko = np.mean(ko.chol)
 std_ko = np.std(ko.chol)

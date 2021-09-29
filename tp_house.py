@@ -1,5 +1,6 @@
 import csv
 import matplotlib.pyplot as plt
+import scipy.stats as stats
 
 loyers = []
 surfaces = []
@@ -58,6 +59,13 @@ y = flineaire(x)
 plt.plot(x, y, color="red")
 
 plt.scatter(surfaces_filtre, loyers_filtre)
+
+slope, intercept, rvalue, pvalue, stderr = stats.linregress(surfaces_filtre, loyers_filtre)
+print(slope, intercept, rvalue, pvalue, stderr)
+
+faffine = lambda x : slope * x + intercept
+y2 = faffine(x)
+plt.plot(x, y, color="green")
 plt.show()
 
 np.savez("data/house/house_filtre.npz", surfaces_filtre=surfaces_filtre, loyers_filtre=loyers_filtre)
