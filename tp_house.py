@@ -1,6 +1,7 @@
 import csv
 import matplotlib.pyplot as plt
 import scipy.stats as stats
+import numpy as np
 
 loyers = []
 surfaces = []
@@ -22,14 +23,14 @@ avg_loyer = sum(loyers) / len(loyers)
 print(avg_loyer)
 avg_surface = sum(surfaces) / len(surfaces)
 print(avg_surface)
-plt.scatter(surfaces, loyers)
-plt.show()
+
+
 
 # Convertir les listes python en tableau numpy
 # np.mean
 # Recalculer les moyennes
 # Calculer la moyenne du loyer/m²
-import numpy as np
+
 loyers_np = np.array(loyers)
 surfaces_np = np.array(surfaces)
 print(np.min(loyers_np), np.max(loyers_np), np.mean(loyers_np))
@@ -37,10 +38,14 @@ print(np.min(surfaces_np), np.max(surfaces_np), np.mean(surfaces_np))
 loyer_per_m2 = loyers_np / surfaces_np
 print(np.min(loyer_per_m2), np.max(loyer_per_m2), np.mean(loyer_per_m2))
 
-t1 = np.array([1,2,3,4,5,6.])
-print(t1[[True,True,True,False,False,False]])
-print(t1 < 4)
-print(t1[t1 < 4])
+slope, intercept, rvalue, pvalue, stderr = stats.linregress(surfaces_np, loyers_np)
+print(slope, intercept, rvalue, pvalue, stderr)
+faffine = lambda x : slope * x + intercept
+
+plt.scatter(surfaces, loyers)
+plt.plot(np.arange(400), faffine(np.arange(400)), color="green" )
+plt.show()
+
 
 # Filtrer les surfaces et loyers par rapport surface < 200
 # Reafficher les data dans matplotlib
