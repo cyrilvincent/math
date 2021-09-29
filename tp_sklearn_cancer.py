@@ -6,7 +6,7 @@
 # Critiquer le résultat pour un degrés de polynome important
 
 import numpy as np
-import pandas
+import pandas as pd
 import sklearn.linear_model as lm
 import sklearn.neighbors as neighbors
 import matplotlib.pyplot as plt
@@ -17,12 +17,11 @@ import sklearn.preprocessing as preprocess
 import sklearn.pipeline as pipe
 import sklearn.preprocessing as pp
 
-data = pandas.read_csv("data/heartdisease/dataclean.csv")
-y = data.num
-x = data.drop("num",1)
+dataframe = pd.read_csv("data/breast-cancer/data.csv",index_col="id",na_values=".")
+y = dataframe.diagnosis
+x = dataframe.drop("diagnosis",1)
 
 for i in range(1,10):
-    modelpp = pp.PolynomialFeatures(i)
-    model = pipe.make_pipeline(modelpp, lm.Ridge())
+    model = pipe.make_pipeline(pp.PolynomialFeatures(i), lm.Ridge())
     model.fit(x, y)
     print(i, model.score(x, y))
