@@ -21,8 +21,11 @@ data = pandas.read_csv("data/heartdisease/dataclean.csv")
 y = data.num
 x = data.drop("num",1)
 
-for i in range(1,10):
+xtrain, xtest, ytrain, ytest = ms.train_test_split(x,y,train_size=0.8, test_size=0.2)
+
+for i in range(1,4):
     modelpp = pp.PolynomialFeatures(i)
     model = pipe.make_pipeline(modelpp, lm.Ridge())
-    model.fit(x, y)
-    print(i, model.score(x, y))
+    model.fit(xtrain, ytrain) #NE VOIT JAMAIS XTEST et YTEST
+    print(i, model.score(xtrain, ytrain))
+    print(i, model.score(xtest, ytest))
