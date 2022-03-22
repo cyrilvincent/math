@@ -5,10 +5,38 @@ import numpy as np
 im = Image.open("data/ski.jpg")
 cube = np.asarray(im).astype("float")
 im_red = cube[:,:,0]
+im_green = cube[:,:,1]
+print(np.mean(im_red), np.min(im_red), np.max(im_red), np.std(im_red))
 print(cube.shape)
 print(cube.dtype)
-im = im_red.T
-im2 = Image.fromarray(im.astype(np.uint8)).convert("RGB")
+# im = im_red.T
+
+im_inverse = im_red[-1::-1]
+im_inverse2 = im_red[:, -1::-1]
+
+im_lum = np.clip(im_red * 1.2, 0, 255)
+
+im_nb = np.mean(cube, axis=2)
+
+im_crop = im_nb[100:-101, 100:-101]
+
+im = Image.open("data/ski2.jpg")
+cube2 = np.asarray(im).astype("float")
+
+row_min = min(cube.shape[0], cube2.shape[0])
+col_min = min(cube.shape[1], cube2.shape[1])
+print(row_min, col_min)
+
+cube_crop = cube[(cube.shape[0] - row_min) // 2 + 1 : -((cube.shape[0] -row_min) // 2) - 1, (cube.shape[1] - col_min) // 2 : -((cube.shape[1] - col_min) // 2) - 1]
+cube2_crop = cube2[(cube2.shape[0] - row_min) // 2 : -((cube2.shape[0] - row_min) // 2) - 1, (cube2.shape[1] - col_min) // 2 : -((cube2.shape[1] - col_min) // 2) - 1]
+print(cube_crop.shape, cube2_crop.shape)
+
+
+cube_superpose = (cube_crop + cube2_crop) / 2
+
+cubeautocontrast = np.clip(cube * (64 / np.std(cube)),0,255)
+
+im2 = Image.fromarray(cube_superpose.astype(np.uint8)).convert("RGB")
 im2.save("data/modified.jpg")
 
 # TP
