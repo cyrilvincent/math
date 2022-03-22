@@ -24,7 +24,13 @@ print(f"min: {np.min(surfaces)}, max: {np.max(surfaces)}, avg: {np.mean(surfaces
 
 loyer_per_m2 = loyers / surfaces
 print(f"min: {np.min(loyer_per_m2)}, max: {np.max(loyer_per_m2)}, avg: {np.mean(loyer_per_m2)}")
-avg = np.mean(loyer_per_m2)
+avg = np.mean(loyers)
+std = np.std(loyers)
+median = np.median(loyers)
+quartiles = np.quantile(loyers, [0.1, 0.9])
+
+print(f"Avg: {avg}, std: {std}, median: {median}, quartiles: {quartiles}")
+
 y = surfaces * avg
 
 f = lambda x: avg * x
