@@ -6,6 +6,9 @@ import sqlite3
 with sqlite3.connect("data/house/house.db3") as conn:
     dataframe = pd.read_sql("select * from house", conn)
 print(dataframe)
+
+dataframe = dataframe[dataframe.loyer < 200]
+
 loyers_serie = dataframe.loyer
 print(loyers_serie)
 

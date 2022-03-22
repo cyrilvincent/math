@@ -1,6 +1,7 @@
 import csv
 import matplotlib.pyplot as plt
 import mylib
+import scipy.stats as stats
 
 import numpy as np
 
@@ -31,6 +32,9 @@ quartiles = np.quantile(loyers, [0.1, 0.9])
 
 print(f"Avg: {avg}, std: {std}, median: {median}, quartiles: {quartiles}")
 
+slope, intercept, rvalue, pvalue, mse = stats.linregress(surfaces, loyers)
+print(slope, intercept, rvalue, pvalue, mse)
+
 y = surfaces * avg
 
 f = lambda x: avg * x
@@ -41,4 +45,4 @@ g = lambda x: x ** 2
 # Essayer d'afficher la fonction linéaire y = mean*x
 
 
-mylib.display(surfaces, loyers, loyer_per_m2, fn=lambda x: avg * x)
+mylib.display(surfaces, loyers, loyer_per_m2, fn=lambda x : slope * x + intercept)

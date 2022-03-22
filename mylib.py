@@ -8,9 +8,9 @@ def display(x, y1, y2, fn):
     :param y2: tutu
     :return:
     """
-    plt.subplot(211)
+    # plt.subplot(211)
     plt.plot(x, fn(x), color="red")
     plt.scatter(x, y1)
-    plt.subplot(212)
-    plt.scatter(x, y2)
+    # plt.subplot(212)
+    # plt.scatter(x, y2)
     plt.show()
