@@ -13,3 +13,10 @@ loyers_serie = dataframe.loyer
 print(loyers_serie)
 
 print(dataframe.describe().T)
+
+# Afficher nuage de points surfaces / loyers
+# Calculer et afficher la regression lineaire
+# Enlever les surfaces > 200
+# Recalculer la regression
+# Enlever les points dont la distance avec la droite > |f(x + 3 * std) - f(x)|
+# Recalculer la regression
