@@ -3,12 +3,22 @@ import sqlite3
 import matplotlib.pyplot as plt
 import scipy.stats as stats
 import numpy as np
+import scipy.optimize as opt
 
 dataframe = pd.read_csv("data/house/house.csv")
 #dataframe = pd.read_excel("data/house/house.xlsx", index_col="id")
 # with sqlite3.connect("data/house/house.db3") as conn:
 #     dataframe = pd.read_sql("select * from house", conn)
-print(dataframe)
+
+f2 = lambda x, a, b, c: a * x ** 2 + b * x + c
+
+weights, conv = opt.curve_fit(f2, dataframe.surface, dataframe.loyer)
+print(weights)
+print(conv)
+
+plt.scatter(dataframe.surface, dataframe.loyer)
+plt.plot(np.arange(9, 400), f2(np.arange(9, 400), weights[0], weights[1], weights[2]), color="red")
+plt.show()
 
 dataframe = dataframe[dataframe.surface < 200]
 
@@ -35,10 +45,10 @@ std_filter = np.abs(f1(dataframe.surface) - dataframe.loyer) < 3 * std * datafra
 dataframe_filter = dataframe[std_filter]
 slope2, intercept2, rvalue2, pvalue2, _ = stats.linregress(dataframe_filter.surface, dataframe_filter.loyer)
 print(slope2, intercept2)
-f2 = lambda x : slope2 * x + intercept2
+f = lambda x : slope2 * x + intercept2
 
 plt.scatter(dataframe_filter.surface, dataframe_filter.loyer)
-plt.plot(np.arange(9, 200), f2(np.arange(9, 200)), color="red")
+plt.plot(np.arange(9, 200), f(np.arange(9, 200)), color="red")
 plt.show()
 
 
