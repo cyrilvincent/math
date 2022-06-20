@@ -7,7 +7,6 @@ def predict_loyer(surface):
     return surface * avg
 
 
-
 with open("data/house/house.csv") as f:
     reader = csv.DictReader(f)
     loyers = []
@@ -31,11 +30,20 @@ with open("data/house/house.csv") as f:
     # f(x) = 37.66 * x
     f = lambda x: 37.66 * x
     y = predict_loyer(loyers)
+
+    y= []
+    for elem in loyers:
+        y.append(predict_loyer(elem))
+    y = np.array(y)
+
     print(y)
 
 plt.scatter(surfaces, loyers)
 plt.show()
 
+predicat = surfaces < 50
+print(surfaces[predicat])
+print(loyers[predicat])
 
 
 # Afficher le nuage de points x: surfaces, y: loyers
