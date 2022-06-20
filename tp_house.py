@@ -23,6 +23,15 @@ with open("data/house/house.csv") as f:
     print(np.min(surfaces), np.max(surfaces), np.mean(surfaces))
 
     loyers_per_m2 = loyers / surfaces
+    np.savez("data/house/loyerperm2.npz", loyers_per_m2 = loyers_per_m2
+                                        , loyers= loyers
+                                        , toto = surfaces
+             )
+
+    data = np.load("data/house/loyerperm2.npz")
+    print(list(data.keys()))
+    loyers_per_m2 = data["loyers_per_m2"]
+
     print(np.min(loyers_per_m2), np.max(loyers_per_m2), np.mean(loyers_per_m2))
 
     print(np.round(predict_loyer(100), 2))
@@ -44,6 +53,7 @@ plt.show()
 predicat = surfaces < 50
 print(surfaces[predicat])
 print(loyers[predicat])
+
 
 
 # Afficher le nuage de points x: surfaces, y: loyers
