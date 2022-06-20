@@ -11,10 +11,12 @@ def sin(l):
         res.append(math.sin(i))
     return res
 
+plt.subplot(1,2,1)
 plt.scatter(x, y)
-plt.show()
+plt.subplot(1,2,2)
 plt.plot(x, sin(x))
 plt.show()
+
 
 
 
