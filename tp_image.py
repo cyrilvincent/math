@@ -6,3 +6,6 @@
 # Créer un vrai image N&B : avg de la 3ème dimension
 # Superposer 2 images /!\ les images n'ont pas la même résolution
 # Calculer le contraste, autoconstraster l'image
+
+import demo_pillow as dp
+
