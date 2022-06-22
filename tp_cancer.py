@@ -6,6 +6,9 @@ import numpy as np
 import sklearn.preprocessing as preprocess
 import numpy as np
 import sklearn.model_selection as ms
+import sklearn.ensemble as rf
+import sklearn.tree as tree
+import matplotlib.pyplot as plt
 
 np.random.seed(0)
 
@@ -20,9 +23,18 @@ scaler.fit(xtrain)
 xtrain = scaler.transform(xtrain)
 xtest = scaler.transform(xtest)
 
-model = nn.KNeighborsClassifier(n_neighbors=3)
+# model = nn.KNeighborsClassifier(n_neighbors=3)
+model = rf.RandomForestClassifier()
 model.fit(xtrain, ytrain)
 predicted = model.predict(xtest)
+
+print(model.feature_importances_)
+plt.bar(x.columns, model.feature_importances_)
+plt.xticks(rotation=45)
+plt.show()
+
+tree.export_graphviz(model.estimators_[0], out_file="data/breast-cancer/tree.dot", feature_names=x.columns,
+                     class_names=["0", "1"], filled=True)
 
 score = model.score(xtest, ytest)
 print(f"Score: {score}")
