@@ -8,6 +8,7 @@ import sklearn.pipeline as pipe
 import sklearn.preprocessing as preprocess
 import numpy as np
 
+np.random.seed(0)
 
 dataframe = pd.read_csv("data/heartdisease/data_cleaned_up.csv")
 y = dataframe.num
@@ -23,8 +24,8 @@ scaler.fit(xtrain)
 xtrain = scaler.transform(xtrain) # lambda x: (x - mean) / std
 xtest = scaler.transform(xtest)
 
-np.median(xtrain)
-np.quantile([0.25, 0.75])
+# np.median(xtrain)
+# np.quantile(xtrain, [0.25, 0.75])
 
 # model = lm.LinearRegression()
 model = nn.KNeighborsClassifier(n_neighbors=3)
