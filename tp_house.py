@@ -1,5 +1,6 @@
 import numpy as np
 import csv
+import matplotlib.pyplot as plt
 
 surf=[]
 loyer=[]
@@ -23,3 +24,13 @@ print(loyer)
 # Créer le tableau loyer_par_m2
 # Afficher le loyer par m² moyen
 # Afficher en subplot le diagramme en barre des loyer par m²
+
+print(surf.shape, loyer.shape)
+plt.subplot(211)
+plt.scatter(surf, loyer)
+print(np.mean(surf), np.mean(loyer))
+loyer_par_m2 = loyer / surf
+print(loyer_par_m2)
+plt.subplot(212)
+plt.bar(surf, loyer_par_m2)
+plt.show()
