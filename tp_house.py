@@ -1,10 +1,11 @@
 import numpy as np
 import csv
 import matplotlib.pyplot as plt
+import config
 
 surf=[]
 loyer=[]
-with open("data/house/house.csv") as f:
+with open(config.house_csv_path) as f:
     reader = csv.DictReader(f)
     for row in reader:
         surf.append(float(row["surface"]))
@@ -45,6 +46,14 @@ print(surf2)
 loyer2 = loyer[predicat]
 
 display_surf_loyer(loyer2, surf2)
+
+np.savez(config.house_npz_path, loyer = loyer2, surf = surf2)
+
+data = np.load(config.house_npz_path)
+print(list(data.keys()))
+loyer2 = data["loyer"]
+surf2 = data["surf"]
+
 
 # group1 = 0 < surf <= 40
 # group2 = 40 < surf <= 80
