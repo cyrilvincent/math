@@ -1,6 +1,19 @@
 import sys
-import numpy as np
 
 print("Hello World!")
 print(sys.version)
-print(np.__version__)
+
+# i = int(input("Saisir i:"))
+# i += 1
+# print(i)
+
+def is_even(x):
+    if x % 2 == 0:
+        return True
+    else:
+        return False
+
+
+for i in range(0,10):
+    a = is_even(i)
+    print(a)
