@@ -34,3 +34,21 @@ print(loyer_par_m2)
 plt.subplot(212)
 plt.bar(surf, loyer_par_m2)
 plt.show()
+
+predicat = surf < 200
+print(predicat)
+surf2 = surf[predicat]
+print(surf2)
+loyer2 = loyer[predicat]
+
+# group1 = 0 < surf <= 40
+# group2 = 40 < surf <= 80
+# group3 = surf > 80
+#
+# loyer1 = loyer[group1]
+# loyer2 = loyer[group2]
+# loyer3 = loyer[group3]
+#
+# surf1 = loyer[group1]
+# surf2 = loyer[group2]
+# surf3 = loyer[group3]
