@@ -25,21 +25,26 @@ print(loyer)
 # Afficher le loyer par m² moyen
 # Afficher en subplot le diagramme en barre des loyer par m²
 
-print(surf.shape, loyer.shape)
-plt.subplot(211)
-plt.scatter(surf, loyer)
-print(np.mean(surf), np.mean(loyer))
-loyer_par_m2 = loyer / surf
-print(loyer_par_m2)
-plt.subplot(212)
-plt.bar(surf, loyer_par_m2)
-plt.show()
+def display_surf_loyer(loyer, surf):
+    print(surf.shape, loyer.shape)
+    plt.subplot(211)
+    plt.scatter(surf, loyer)
+    print(np.mean(surf), np.mean(loyer))
+    loyer_par_m2 = loyer / surf
+    print(loyer_par_m2)
+    plt.subplot(212)
+    plt.bar(surf, loyer_par_m2)
+    plt.show()
+
+display_surf_loyer(loyer, surf)
 
 predicat = surf < 200
 print(predicat)
 surf2 = surf[predicat]
 print(surf2)
 loyer2 = loyer[predicat]
+
+display_surf_loyer(loyer2, surf2)
 
 # group1 = 0 < surf <= 40
 # group2 = 40 < surf <= 80
