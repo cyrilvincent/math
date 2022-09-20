@@ -10,9 +10,23 @@ def save(array, path):
     dest = Image.fromarray(array.astype(np.uint8)).convert("RGB")
     dest.save(path)
 
-array = load("data/ski.jpg")
-red=array[:,:,0].T
-save(red, "data/result.jpg")
+def luminance(array):
+    return np.mean(array)
+
+array = load("data/foret.jpg")
+red=array[:,:,0]
+save(red, "data/result-red.jpg")
+green=array[:,:,1]
+save(green, "data/result-green.jpg")
+blue=array[:,:,2]
+save(blue, "data/result-blue.jpg")
+
+lum_red = luminance(red)
+print(lum_red)
+lum_green = luminance(green)
+print(lum_green)
+lum_blue = luminance(blue)
+print(lum_blue)
 
 # Afficher les canaux R, V, B
 # Stats : lunimance : mean, par canaux ?
