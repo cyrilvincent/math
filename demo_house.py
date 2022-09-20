@@ -36,7 +36,6 @@ print(slope, intercept, r_value, p_value, std_err)
 x = np.arange(200)
 plt.plot(x, f(x), color="red")
 plt.show()
-plt.show()
 
 # Facile, refaire le tp en filtrant les points < 200
 # Calculer la std sur les tarifs/m²
