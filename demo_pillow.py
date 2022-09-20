@@ -28,7 +28,7 @@ def auto_lum_contrast(array):
     array_norm = (array - lum) / std
     return np.clip((array_norm * 63.75) + 127.5, 0, 255)
 
-array = load("data/foret.jpg")
+array = load("data/ski.jpg")
 red=array[:,:,0]
 save(red, "data/result-red.jpg")
 green=array[:,:,1]
