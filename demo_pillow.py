@@ -13,6 +13,21 @@ def save(array, path):
 def luminance(array):
     return np.mean(array)
 
+def stats(array):
+    return np.mean(array), np.min(array), np.max(array), np.std(array)
+
+
+def crop(array, nb):
+    return array[nb:-nb, nb:-nb]
+
+def convert_nb(array):
+    return np.mean(array, axis=2)
+
+def auto_lum_contrast(array):
+    lum, min, max, std = stats(array)
+    array_norm = (array - lum) / std
+    return np.clip((array_norm * 63.75) + 127.5, 0, 255)
+
 array = load("data/foret.jpg")
 red=array[:,:,0]
 save(red, "data/result-red.jpg")
@@ -27,6 +42,19 @@ lum_green = luminance(green)
 print(lum_green)
 lum_blue = luminance(blue)
 print(lum_blue)
+
+lum, min, max, std = stats(array)
+
+print(min, max, std)
+
+array_crop = crop(array, 50)
+save(array_crop, "data/result-crop.jpg")
+
+array_nb = convert_nb(array)
+save(array_nb, "data/result_nb.jpg")
+
+array_norm = auto_lum_contrast(array)
+save(array_norm, "data/result_norm.jpg")
 
 # Afficher les canaux R, V, B
 # Stats : lunimance : mean, par canaux ?
