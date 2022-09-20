@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 # Import le fichier data/heart/data_with_nan.csv
 # Afficher le describe
@@ -21,3 +22,12 @@ print(dataframe_ko.thalach.describe())
 # Virer les lignes avec des na
 # Vérifier le nombre de ligne supprimées (faire un describe avant et après suppression)
 # Sauvegarder dataframe dans data/heartdisease/dataclean.csv
+
+dataframe_clean = dataframe.drop(["slope", "ca", "thal"], axis=1)
+dataframe_clean = dataframe_clean.dropna()
+print(dataframe_clean.describe())
+dataframe_clean.to_csv("data/heartdisease/dataclean.csv", index=False)
+
+chol = dataframe_clean.chol
+print(np.mean(chol), np.std(chol), np.var(chol), np.median(chol))
+print(np.quantile(chol, [0.1, 0.2, 0.3]))
