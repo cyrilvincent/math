@@ -55,6 +55,7 @@ loyer2 = data["loyer"]
 surf2 = data["surf"]
 
 
+
 # group1 = 0 < surf <= 40
 # group2 = 40 < surf <= 80
 # group3 = surf > 80
