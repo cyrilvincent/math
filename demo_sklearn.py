@@ -13,6 +13,7 @@ model = lm.LinearRegression()
 model.fit(x, y)
 
 predicted = model.predict(np.arange(400).reshape(-1, 1))
+print(model.score(x, y))
 plt.plot(np.arange(400), predicted, color="red")
 plt.show()
 
