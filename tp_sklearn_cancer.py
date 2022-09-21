@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sklearn.ensemble as rf
 import sklearn.preprocessing as pp
+import sklearn.neural_network as neural
 
 dataframe = pd.read_csv("data/breast-cancer/data.csv", index_col="id")
 
@@ -17,13 +18,14 @@ x = scaler.transform(x)
 
 # model = lm.LinearRegression()
 # model = nn.KNeighborsClassifier(n_neighbors=3)
-model = rf.RandomForestClassifier()
+# model = rf.RandomForestClassifier()
+model = neural.MLPClassifier((30,30,30))
 model.fit(x, y)
 
-print(model.feature_importances_)
-plt.bar(xoriginal.columns, model.feature_importances_)
-plt.xticks(rotation=45)
-plt.show()
+# print(model.feature_importances_)
+# plt.bar(xoriginal.columns, model.feature_importances_)
+# plt.xticks(rotation=45)
+# plt.show()
 
 predicted = model.predict(x)
 print(x.shape)

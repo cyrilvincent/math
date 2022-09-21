@@ -4,6 +4,7 @@ import sklearn.model_selection as ms
 import sklearn.metrics as metrics
 import sklearn.neighbors as nn
 import sklearn.ensemble as rf
+import sklearn.neural_network as neural
 
 np.random.seed(0)
 
@@ -19,7 +20,8 @@ x_train, _, y_train, _ = ms.train_test_split(x_train, y_train, train_size=0.1, t
 
 # model = nn.KNeighborsClassifier(n_neighbors=3)
 # model = neural.MLPClassifier((600, 300, 100))
-model = rf.RandomForestClassifier()
+# model = rf.RandomForestClassifier()
+model = neural.MLPClassifier((600, 200, 100))
 model.fit(x_train, y_train)
 print(model.score(x_test, y_test))
 
