@@ -4,9 +4,8 @@ import scipy.optimize as opt
 import matplotlib.pyplot as plt
 
 np.random.seed(0)
-noise = 0.1
+noise = 10
 def f(x):
-    """ function to approximate by polynomial interpolation"""
     delta = (np.random.rand(x.shape[0]) - 0.5) * noise
     # f(x) = 2.5x.sin(0.7x)+2
     return  2.5 * x * np.sin(0.7 * x) + 2 + delta
