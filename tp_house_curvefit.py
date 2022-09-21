@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.optimize as opt
+import scipy.integrate as integrate
 
 dataframe = pd.read_csv("data/house/house.csv")
 plt.scatter(dataframe.surface, dataframe.loyer)
@@ -27,3 +28,5 @@ plt.plot(x, f3(x, res[0], res[1], res[2], res[3]), color="green")
 plt.show()
 # Curvefiter une courbe en U (polynome de degré 2 puis 3)
 
+res = integrate.quad(f3, 0, 400, args=(res[0], res[1], res[2], res[3]))
+print(res)
