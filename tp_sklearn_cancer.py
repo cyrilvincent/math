@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sklearn.neighbors as nn
 
-dataframe = pd.read_csv("data/heartdisease/dataclean.csv")
+dataframe = pd.read_csv("data/breast-cancer/data.csv", index_col="id")
 
-y = dataframe.num
-x = dataframe.drop("num", axis=1)
+y = dataframe.diagnosis
+x = dataframe.drop("diagnosis", axis=1)
 
 # model = lm.LinearRegression()
 model = nn.KNeighborsClassifier(n_neighbors=3)
