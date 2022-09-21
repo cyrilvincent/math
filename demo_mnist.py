@@ -16,8 +16,6 @@ print(x_train.shape, y_train.shape, x_test.shape, y_test.shape)
 x_train = x_train.reshape(-1, 28*28)
 x_test = x_test.reshape(-1, 28*28)
 
-x_train, _, y_train, _ = ms.train_test_split(x_train, y_train, train_size=0.1, test_size=0.9)
-
 # model = nn.KNeighborsClassifier(n_neighbors=3)
 # model = neural.MLPClassifier((600, 300, 100))
 # model = rf.RandomForestClassifier()
