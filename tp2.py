@@ -1,5 +1,7 @@
 from typing import List, Tuple
 import tp1
+import numpy as np
+
 
 # Faire la fonction min_max qui retourne le min et le max avec une boucle
 # Faire la fonction filter_even qui retourne une liste filtrée par les nombres pairs
