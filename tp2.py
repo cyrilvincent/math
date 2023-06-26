@@ -46,3 +46,12 @@ if __name__ == '__main__':
     print(l_even)
     l_prime = filter_generic(lambda x: tp1.is_prime(x), l1)
     print(l_prime)
+    l_prime2 = list(filter(lambda x: tp1.is_prime(x), l1))
+    print(l_prime2)
+    l2 = list(map(lambda x: x**2, l1))
+    print(l2)
+    res = list(map(lambda x: x **2, filter(lambda x: tp1.is_prime(x), l1)))
+    print(res)
+    # <=>
+    res = [x **2  for x in l1 if tp1.is_prime(x)]
+    print(res)
