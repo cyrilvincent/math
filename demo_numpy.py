@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 print(np.__version__)
 
@@ -39,6 +40,9 @@ v1 = np.array([1.,2,3,4])
 print(v1[1], v1[-1], v1[1:3], v1[1:-1], v1[1:], v1[:3], v1[:])
 # step
 print(v1[1:4:2], v1[:-1:2], v1[1::2], v1[::2])
+print(v1[[True, False,True,False]])
+
+
 
 # TP
 # Créer un vecteur aléatoire de 10 floats compris entre 0 et 400
@@ -49,6 +53,16 @@ print(v1[1:4:2], v1[:-1:2], v1[1::2], v1[::2])
 # Créer facilement l'array loyer_m2
 # Afficher le loyer_m2 min et max
 # Afficher 1 loyer sur 3 sauf les 2 premiers et les 2 derniers
+
+
+
+
+my_vector = np.random.rand(10) * 400
+print(my_vector)
+plt.scatter(np.arange(10), my_vector)
+plt.show()
+
+
 
 
 
