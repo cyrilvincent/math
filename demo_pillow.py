@@ -20,3 +20,5 @@ dest.show()
 #   crop(array, nb) -> array: crop nb ligne en EST, OUEST, NORD, SUD
 #   get_chanel(array, num: int) -> 0 = RED, 1=GREEN, 2=BLUE
 #   Tester toutes les fonctions en sauvegardant les images
+#   add(array1, array2) -> additionne 2 images, de shape identique
+#   Bonus : Si les 2 images sont de résolutions différentes autocropper la + grande vers la + petite
