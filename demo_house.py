@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import house_module as house
 import house_oo
+import scipy.stats as stats
 
 with open("data/house/house.csv", "r") as f:
     reader = csv.DictReader(f)
@@ -61,17 +62,24 @@ f_result = [f(x) for x in range(400)]
 
 # Save results
 np.savez("data/house/house.npz", np_surfaces = np_surfaces, np_loyers = np_loyers, np_loyers_m2 = np_loyers_m2)
-np_loyers = None
-dico = np.load("data/house/house.npz")
-print(list(dico.keys()))
-np_loyers = dico["np_loyers"]
+# np_loyers = None
+# dico = np.load("data/house/house.npz")
+# print(list(dico.keys()))
+# np_loyers = dico["np_loyers"]
 
-loyers, surface = house.load_house("data/house/house.csv")
+surfaces, loyers = house.load_house("data/house/house.csv")
 
-house_service = house_oo.HouseService()
-house_service.load_house("data/house/house.csv")
+# house_service = house_oo.HouseService()
+# house_service.load_house("data/house/house.csv")
+
+slope, intercept, r_value, p_value, std_err = stats.linregress(surfaces, loyers)
+print(slope, intercept, r_value, p_value, std_err)
+
+fn = lambda x: slope * x + intercept
+x = np.arange(400)
+y = fn(x)
 
 plt.scatter(surfaces, loyers)
-plt.plot(range(400), f_result, color="red")
+plt.plot(x, y, color="red")
 plt.show()
 
