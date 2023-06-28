@@ -2,8 +2,8 @@ import csv
 import matplotlib.pyplot as plt
 import numpy as np
 import house_module as house
-import house_oo
 import scipy.stats as stats
+import scipy.optimize as opt
 
 with open("data/house/house.csv", "r") as f:
     reader = csv.DictReader(f)
@@ -79,7 +79,14 @@ fn = lambda x: slope * x + intercept
 x = np.arange(400)
 y = fn(x)
 
+model = lambda x, a, b, c: a * x**2 + b * x + c
+weigths, conv = opt.curve_fit(model, surfaces, loyers)
+print(weigths)
+
+
+
 plt.scatter(surfaces, loyers)
-plt.plot(x, y, color="red")
+plt.plot(x, y, color="black")
+plt.plot(np.arange(400), model(np.arange(400), weigths[0], weigths[1], weigths[2]), color="red")
 plt.show()
 

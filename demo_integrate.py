@@ -1,4 +1,4 @@
-from scipy.integrate import quad
+import scipy.integrate
 import numpy as np
 
 def fn(x, a, b, c):
@@ -6,6 +6,6 @@ def fn(x, a, b, c):
 
 a = 2.5
 b = 0.7
-c = 2
-I = quad(fn, 0, 1, args=(a,b,c))
+c = 10
+I = scipy.integrate.quad(fn, 0, 10, args=(a,b,c))
 print(I)
