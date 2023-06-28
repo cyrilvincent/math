@@ -11,9 +11,9 @@ dataframe = pd.read_csv("data/house/house.csv")
 x = dataframe.surface.values.reshape(-1, 1)
 y = dataframe.loyer
 
-model = lm.LinearRegression()
-# model = rf.RandomForestRegressor()
-# model = neural.MLPRegressor((200))
+# model = lm.LinearRegression()
+# model = rf.RandomForestRegressor(n_estimators=1)
+model = neural.MLPRegressor((10, 10, 10))
 model.fit(x, y)
 
 predicted = model.predict(np.arange(400).reshape(-1, 1))
