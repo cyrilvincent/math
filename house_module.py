@@ -3,7 +3,7 @@ from typing import Tuple
 
 import numpy as np
 
-def load_house(path: str) -> Tuple[np.array[float], np.array[float]]:
+def load_house(path: str) -> Tuple:
     """
     Load house
     :param path: the path

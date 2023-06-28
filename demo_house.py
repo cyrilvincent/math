@@ -21,6 +21,15 @@ with open("data/house/house.csv", "r") as f:
 np_surfaces = np.array(surfaces)
 np_loyers = np.array(loyers)
 np_loyers_m2 = np_loyers / np_surfaces
+
+# Stats
+print(f"Moyenne: {np.mean(np_loyers_m2)}")
+print(f"Ecart type: {np.std(np_loyers_m2)}")
+print(f"Mediane: {np.median(np_loyers_m2)}")
+print(f"Quartiles: {np.quantile(np_loyers_m2, [0.25, 0.75])}")
+
+
+
 print(f"Min: {np.min(np_loyers_m2)}, max: {np.max(np_loyers_m2)}")
 print(np_loyers_m2[2:-2:3])
 print(f"Shape: {np_surfaces.shape}")

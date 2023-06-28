@@ -41,6 +41,15 @@ class ImageLibrary:
         res = (array1 + array2) / 2
         return res
 
+    # Luminance : mean
+    # Facultatif Luminance_by_chanel : mean, mean, mean
+    # Contrast : std
+    # N&B : mean de la 3d
+    # Auto-adjust :
+    #   Normalise l'image => (pixel - mean) / std
+    #   Appliquer les valeurs idéales => pixel_norm * 63.75 + 127.5
+    #   np.clip(x,min,max)
+
 if __name__ == '__main__':
     il = ImageLibrary()
     array = il.load("data/foret.jpg")
