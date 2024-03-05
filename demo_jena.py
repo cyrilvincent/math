@@ -3,6 +3,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 dataframe = pd.read_csv("data/jena/jena_filtered.csv")
+
+p = dataframe["p (mbar)"].values
+t = dataframe["T (degC)"].values
+np.savez("data/jena/jena.npz", p=p, t=t)
+
+dict = np.load("data/jena/jena.npz")
+
+
 # print(dataframe.describe()["wv (m/s)"])
 #
 # dataframe = dataframe[5::6]
