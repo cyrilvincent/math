@@ -4,12 +4,18 @@ import matplotlib.pyplot as plt
 class Mesure:
 
     def __init__(self, path) -> None:
+        """
+        Blah blah
+        """
         self.path = path # Attribute
         self.vm = None
         self.vt = None
         self.t = None
 
     def load(self):
+        """
+        Load the NPZ
+        """
         dict = np.load(self.path)
         self.vm = dict["vm"]
         self.vt = dict["vt"]
