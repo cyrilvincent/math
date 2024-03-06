@@ -52,3 +52,9 @@ print(tp)
 # Calculer le min et max de temperature de l'année 1, 2 et 3
 # Créer le vecteur tp qui est t/p
 
+print(t[t<-21])
+my_filter = t<-21
+print(t[my_filter])
+print(x[my_filter])
+print(p[my_filter])
+

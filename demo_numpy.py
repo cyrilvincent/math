@@ -20,3 +20,8 @@ print(np.max(a5))
 print(a5.shape, a5.ndim, a5.size, a5.dtype)
 
 print(a5[::-1])
+
+print(a6 % 2 == 0)
+my_filter = a6 % 2 == 0
+print(a6[my_filter])
+print(a6[a6 % 2 == 0])
