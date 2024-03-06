@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 dict = np.load("data/jena/jena.npz")
-print(dict.keys())
+print(list(dict.keys()))
 p = dict["p"]
 t = dict["t"]
 print(p.shape)
