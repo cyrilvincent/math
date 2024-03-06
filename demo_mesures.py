@@ -34,6 +34,11 @@ class Mesure:
 
     def diff(self):
         return self.t[np.abs(self.vm - self.vt) > 0], self.vm[np.abs(self.vm - self.vt) > 0]
+    
+    def display(self):
+        plt.plot(self.t, self.vt, color="green")
+        plt.plot(self.t, self.vm)
+        plt.show()
 
 
 
@@ -46,3 +51,4 @@ if __name__=='__main__':
     mesure1.save("data/mesures/mesures2.npz")
     res = mesure1.diff()
     print(res)
+    mesure1.display()
