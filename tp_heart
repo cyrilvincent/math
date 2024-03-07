@@ -1,0 +1,6 @@
+# Tester demo_house
+# Charger data_cleaned_up.csv
+# Faire un describe
+# créer le dataset ok = [num == 0]
+# Créer le dataset ko = [num == 1]
+# Calculer les mean, std sur chol, age, sex
