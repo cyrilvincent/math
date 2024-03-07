@@ -33,3 +33,4 @@ my_value = np.clip(0,255,my_value)
 # Bonus : Auto-lum-contrast = ((matrice - luminance) / contrast) * 63.75 + 127.5
 # Bonus : transformer une image couleur en n/b = np.mean(axis=2)
 # Bonus : profile horizontal = np.mean(axis = 0)
+# 14h10
