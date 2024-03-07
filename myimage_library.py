@@ -47,6 +47,9 @@ class ImageTreatment:
             temp = self.array[:array.shape[0], :array.shape[1], :]
             return (array + temp) / 2
         
+    def __del__(self):
+        pass
+        
            
     
 

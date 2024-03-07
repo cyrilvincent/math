@@ -25,3 +25,7 @@ print(a6 % 2 == 0)
 my_filter = a6 % 2 == 0
 print(a6[my_filter])
 print(a6[a6 % 2 == 0])
+
+print(a5, np.mean(a5), np.std(a5), np.median(a5), np.quantile(a5, [0.1,0.25,0.5,0.75,0.9,0.99]))
+m2 = np.array([[1,2,3],[4,5,6]])
+print(m2, np.mean(m2, axis=0))
