@@ -20,8 +20,8 @@ my_value = np.clip(0,255,my_value)
 # Bonus : Mettre OO
 # crop(north, south, east, west) -> 
 # transpose
-# get_chanel(num = 0,1,2) #RGB
-# dynamic => max - min (axis=2)
+# get_chanel(num = 0,1,2) #RGB En entrée cube => matrice
+# dynamic => max - min
 # reduct(n) : 1 pixel sur n
 # change_lum(n) : Chaque pixel est augmenté de n (np.clip)
 # Bonus add(array1, array2) : additionner 2 image (de même resolution)
