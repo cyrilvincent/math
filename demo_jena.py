@@ -8,6 +8,8 @@ t = dict["t"]
 print(p.shape)
 x = np.arange(70075)
 
+#plt.xscale('log')
+
 print(f"Température min: {np.min(t)}, max: {np.max(t)}")
 
 plt.subplot(211)
