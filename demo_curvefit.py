@@ -3,12 +3,12 @@ import matplotlib.pyplot as plt
 import scipy.optimize as opt
 
 np.random.seed(0)
-noise = 10
+noise = 1
 def f(x):
     delta = (np.random.rand(x.shape[0]) - 0.5) * noise
     return 2.5*x * np.sin(0.7 * x) + 2 + delta
 
-x = np.linspace(0,10,100)
+x = np.linspace(0,100,1000)
 y = f(x)
 
 # f(x) = ax3 + bx² + cx + d
