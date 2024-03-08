@@ -17,11 +17,9 @@ class JenaFFT:
         self.nb_years = self.nb_t / (24*365)
         self.nb_per_year = self.x / self.nb_years
 
-
     def fft(self):
         fft = np.fft.fft(self.t)
         return np.abs(fft)
-
     
     def show(self, fft):
         plt.subplot(211)

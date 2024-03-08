@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.optimize as opt
+import scipy.integrate as integrate
 
 np.random.seed(0)
 noise = 1
@@ -8,14 +9,17 @@ def f(x):
     delta = (np.random.rand(x.shape[0]) - 0.5) * noise
     return 2.5*x * np.sin(0.7 * x) + 2 + delta
 
-x = np.linspace(0,100,1000)
+x = np.linspace(0,10,100)
 y = f(x)
 
 # f(x) = ax3 + bx² + cx + d
 model2 = lambda x,a,b,c: a*x**2 + b*x + c
 model3 = lambda x,a,b,c,d: a*x**3 + b*x**2 + c*x + d
 model4 = lambda x,a,b,c,d,e: a*x**4 + b*x**3 + c*x**2 + d*x +e
-model_trigo = lambda x,a,b,c: a*x * np.sin(b*x) + c 
+model_trigo = lambda x,a,b,c: a*x * np.sin(b*x) + c
+model_trigo_abs = lambda x,a,b,c: np.abs(a*x * np.sin(b*x) + c)
+model_delta = lambda x,a,b,c,d : np.abs((a*x * np.sin(b*x) + c) - (a*x**3 + b*x**2 + c*x + d))
+model_delta = lambda x,a,b,c,a3,b3,c3,d3 : np.abs(model_trigo(x,a,b,c) - model3(x,a3,b3,c3,d3))
 # g(x) = ax * sin(bx) + c
 # h(x) = polynome de degré 4, ou 2
 # Reprise à 13h
@@ -31,6 +35,12 @@ a2,b2,c2 = weigth2
 a3,b3,c3,d3 = weigth3
 a4,b4,c4,d4,e4 = weigth4
 a,b,c = weigth_trigo
+
+i = integrate.quad(model_trigo_abs, 0, 10, args=(a,b,c))
+print(i)
+i2 = integrate.quad(model_delta, 0, 10, args=(a,b,c,a3,b3,c3,d3))
+print(i2)
+
 
 plt.scatter(x, y)
 plt.plot(x, model2(x,a2,b2,c2), color="red")
