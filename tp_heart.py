@@ -8,6 +8,7 @@
 
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 dataframe = pd.read_csv("data/heartdisease/data_cleaned_up.csv")
 # print(dataframe.describe().T)
@@ -15,5 +16,11 @@ ok = dataframe[dataframe.num == 0]
 ko = dataframe[dataframe.num == 1]
 print(ok.describe().T)
 print(ko.describe().T)
+
+corr = np.abs(dataframe.corr())
+print(corr)
+plt.matshow(corr)
+plt.show()
+
 
 
