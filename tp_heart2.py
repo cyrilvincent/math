@@ -19,5 +19,20 @@ ok = dataframe[dataframe.num == 0]
 ko = dataframe[dataframe.num == 1]
 print(ok.describe().T)
 print(ko.describe().T)
+print(ok.chol.isnull().sum())
+print(ko.chol.isnull().sum())
+
+
+dataframe_clean = dataframe.drop(["ca", "thal", "slope"])
+
+# Eventuellement
+mean = dataframe.chol.mean()
+std = dataframe.chol.std()
+ok.chol.fillna(mean + (np.random.rand() - 0.5) * 2 * std, inplace=True)
+ko.chol.fillna(mean + (np.random.rand() - 0.5) * 2 * std, inplace=True)
+
+dataframe = dataframe.dropna()
+dataframe.to_csv("dataclean.csv")
+
 
 
