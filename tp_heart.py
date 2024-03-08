@@ -16,3 +16,4 @@ ko = dataframe[dataframe.num == 1]
 print(ok.describe().T)
 print(ko.describe().T)
 
+
