@@ -1,7 +1,11 @@
 import sys
+import numpy
+import matplotlib
 
 print("Hello World!")
 print(sys.version)
+print(numpy.__version__)
+print(matplotlib.__version__)
 
 x = 1
 
