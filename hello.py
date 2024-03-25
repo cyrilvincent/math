@@ -20,6 +20,14 @@ def is_even(x):
     else:
         return False
 
+def is_prime(n: int) -> bool:
+    if n < 2:
+        return False
+    for div in range(2, n):
+        if n % div == 0:
+            return False
+    return True
+
 # TP
 # Créer la fonction is_prime(x) qui renvoie True si x est premier False sinon
 # Tout nombre >= 2 est premier sauf s'il possède un diviseur entre 2 et n-1
@@ -33,3 +41,8 @@ print(is_even(7))
 
 for i in range(2, 10):
     print(i)
+
+print(is_prime(2))
+print(is_prime(13))
+print(is_prime(28))
+print(is_prime(157))
