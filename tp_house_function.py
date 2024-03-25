@@ -3,11 +3,27 @@ import numpy as np
 
 def load(path):
     dict = np.load(path)
-    print(dict.keys())
     surface = dict["np_surfaces"]
     loyer = dict["np_loyers"]
     return surface, loyer
 
-if __name__ == '__main__':
-    surface, loyer = load("data/house/house.npz")
-    print(surface.shape, loyer.shape)
+def display(x, y, z):
+    plt.subplot(211)
+    plt.scatter(x, y)
+    plt.subplot(212)
+    plt.scatter(x, z)
+    plt.show()
+
+def stats(x):
+    return np.min(x), np.max(x)
+
+def filter(x, y, z, filter):
+    return x[filter], y[filter], z[filter]
+
+surface, loyer = load("data/house/house.npz")
+print(surface.shape, loyer.shape)
+loyer_per_m2 = loyer / surface
+print(stats(surface))
+display(surface, loyer, loyer_per_m2)
+filtre = surface < 200
+filter(surface, loyer, loyer_per_m2, filtre)
