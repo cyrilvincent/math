@@ -2,12 +2,24 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def load(path):
+    """
+    Load the npz file
+    :param path: the path
+    :return: surface & loyer
+    """
     dict = np.load(path)
     surface = dict["np_surfaces"]
     loyer = dict["np_loyers"]
     return surface, loyer
 
 def display(x, y, z):
+    """
+
+    :param x:
+    :param y:
+    :param z:
+    :return:
+    """
     plt.subplot(211)
     plt.scatter(x, y)
     plt.subplot(212)
