@@ -1,17 +1,17 @@
 import numpy as np
 from PIL import Image # pip install Pillow
 
-im = Image.open("data/foret.jpg")
+im = Image.open("d:/T23S0746.8_CC28-2825A_SD_EPI_SIP_API_11_11.tif")
 array = np.asarray(im).astype(np.float64)
 print(array.shape)
 
-array = array[::2,::2]
-array = array[:,:,0]
+# array = array[::2,::2]
+# array = array[:,:,0]
 
 
 dest = Image.fromarray(array.astype(np.uint8)).convert("RGB")
 dest.show()
-dest.save("data/modified.jpg")
+# dest.save("data/modified.jpg")
 
 # TP
 # Tout faire dans des fonctions
