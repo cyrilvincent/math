@@ -23,3 +23,6 @@ print(a1.ndim, a1.size, a1.shape, a1.dtype)
 
 a4 = np.arange(1000)
 print(a4[2:-2:2])
+
+rnd = np.random.random(1000000)
+print(np.mean(rnd), np.std(rnd), np.median(rnd), np.quantile(rnd, [0.25, 0.75]))

@@ -45,6 +45,28 @@ class ImageService:
             array2 = array2[:, :self.array.shape[1]]
         self.array = (self.array + array2) / 2
 
+    def lum(self):
+        return np.mean(self.array)
+
+    def black_and_white(self):
+        self.array = np.mean(self.array, axis=2)
+
+    def contrast(self):
+        return np.std(self.array)
+
+    def auto_lum(self):
+        lum = self.lum()
+        delta = 127.5 - lum
+        self.change_lum(delta)
+
+    def auto_contrast(self):
+        lum = self.lum()
+        contrast = self.contrast()
+        norm = (self.array - lum) / contrast
+        self.array = np.clip(norm * 63.75 + 127.5, 0, 255)
+
+
+
 
 if __name__ == '__main__':
     image_service = ImageService("data/ski.jpg")
@@ -57,4 +79,13 @@ if __name__ == '__main__':
     image_service = ImageService("data/ski.jpg")
     image_service2 = ImageService("data/mug.jpg")
     image_service.add(image_service2.array)
+    image_service = ImageService("data/ski.jpg")
+    print(image_service.lum(), image_service.contrast())
+    #image_service.auto_lum()
+    image_service.auto_contrast()
     image_service.show()
+
+    # lum() => mean
+    # contrast() => std
+    # auto_lum => changer la luminance à 127.5 => change_lum()
+    # Bonus auto contrast => norm = (img - mean) / std, puis norm * 64 + 127.5 avec np.clip
