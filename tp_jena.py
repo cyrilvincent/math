@@ -13,15 +13,26 @@ t = t.values
 # Appliquer une fft et afficher la partie réelle
 # Refaire sans le filtre de 24h
 
-x = np.arange(70075)
+nb = len(t)
+x = np.arange(nb)
+plt.subplot(411)
+plt.step(x, t)
+plt.subplot(412)
 x2 = x[11::24]
 t2 = t[11::24]
-res = fft.fft(t)
-plt.subplot(311)
-plt.plot(x, t)
-plt.subplot(312)
 plt.plot(x2, t2)
-plt.subplot(313)
-plt.plot(x, np.abs(res))
+plt.subplot(413)
+res = fft.fft(t)
+nb_years = nb / (365*24)
+f_per_years = x / nb_years
+plt.plot(f_per_years, np.abs(res))
 plt.xscale("log")
+plt.xticks([1, 365], labels=['1/Year', '1/day'])
+plt.subplot(414)
+n = 24*7
+conv = np.convolve(t, np.ones(n)/n)
+plt.plot(x, conv[:nb])
 plt.show()
+
+
+
