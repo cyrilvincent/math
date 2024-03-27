@@ -6,6 +6,11 @@ import numpy as np
 dataframe = pd.read_csv("data/house/house.csv")
 dataframe = dataframe[dataframe.surface < 200]
 
+mean = np.mean(dataframe.loyer)
+std = np.std(dataframe.loyer)
+dataframe = dataframe[dataframe.loyer < mean + 3 * std]
+print(mean, std)
+
 slope, intercept, rvalue, pvalue, stderr = stats.linregress(dataframe.surface, dataframe.loyer)
 print(slope, intercept, rvalue, pvalue, stderr )
 
