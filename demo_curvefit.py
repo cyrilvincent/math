@@ -19,6 +19,8 @@ model4 = lambda x,a,b,c,d,e: a*x**4 + b*x**3 + c*x**2 + d*x +e
 model5 = lambda x,a,b,c: a*x * np.sin(b*x) + c
 # Tester avec polynome du 4ème degrés
 # Tester avec x sin(x) et modifiant le bruit
+diff = lambda x,a5,b5,c5,a3,b3,c3,d3: np.abs(model5(x,a5,b5,c5) - model3(x, a3,b3,c3, d3))
+
 
 
 weigth2, conv2 = opt.curve_fit(model2, x, y)
@@ -49,10 +51,13 @@ a5 = weigth5[0]
 b5 = weigth5[1]
 c5 = weigth5[2]
 
+surface = integrate.quad(diff,0,10,args=(a5,b5,c5,a3,b3,c3,d3), limit=10000)
+print(surface)
 
 plt.scatter(x, y)
 plt.plot(x, model3(x, a3, b3, c3, d3), color="red")
 plt.plot(x, model2(x, a2, b2, c2), color="green")
 plt.plot(x, model4(x, a4, b4, c4, d4,e4), color="yellow")
 plt.plot(x, model5(x, a5, b5, c5), color="black")
+plt.plot(x, diff(x, a5,b5,c5,a3,b3,c3,d3), color="magenta")
 plt.show()
