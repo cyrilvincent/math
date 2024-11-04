@@ -6,10 +6,15 @@
 # surfaces_filtered = surfaces < 200, afficher la shape
 # loyers_filtered = surfaces < 200
 
+import matplotlib.pyplot as plt
+
 import numpy as np
 data = np.load("data/house/house.npz")
 surfaces = data["np_surfaces"]
 loyers = data["np_loyers"]
+
+plt.scatter(surfaces, loyers)
+plt.show()
 
 print(np.min(loyers), np.max(loyers), loyers.shape)
 print(np.min(surfaces), np.max(surfaces), surfaces.shape)

@@ -14,5 +14,5 @@ def stats(array) -> tuple:
 def compute_loyers_m2(loyers, surfaces):
     return loyers / surfaces
 
-def filter_by_surface(loyers, surfaces, surface_max):
-    return surfaces[surfaces < surface_max], loyers[surfaces < surface_max]
+def filter_by_surface(loyers, surfaces, surface_thresold) -> tuple[np.ndarray, np.ndarray]:
+    return surfaces[surfaces < surface_thresold], loyers[surfaces < surface_thresold]
