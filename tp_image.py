@@ -29,6 +29,20 @@ def divide(array, factor: int):
 def transpose(array):
     return array.T
 
+def luminance(array) -> float:
+    pass # mean de l'array
+
+def contrast(array) -> float:
+    pass # std
+
+def auto_lum(array) -> np.ndarray:
+    # Ramène la luminnce à 127.5
+    np.clip(array, 0, 255)
+
+# Bonus
+def auto_lum_contrast(array) -> np.ndarray:
+    # Lum parfaite = 127.5, contraste parfait = 63.75
+
 if __name__ == '__main__':
     array = load("data/ski.jpg")
     print(array.shape)
