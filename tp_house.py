@@ -7,7 +7,6 @@
 # loyers_filtered = surfaces < 200
 
 import matplotlib.pyplot as plt
-
 import numpy as np
 data = np.load("data/house/house.npz")
 surfaces = data["np_surfaces"]
