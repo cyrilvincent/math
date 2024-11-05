@@ -30,10 +30,13 @@ def transpose(array):
     return array.T
 
 def luminance(array) -> float:
-    pass # mean de l'array
+    return np.mean(array)
 
 def contrast(array) -> float:
-    pass # std
+    return np.std(array)
+
+def convert_nb(array) -> np.ndarray:
+    return np.mean(array, axis=2)
 
 def auto_lum(array) -> np.ndarray:
     # Ramène la luminnce à 127.5
@@ -42,12 +45,19 @@ def auto_lum(array) -> np.ndarray:
 # Bonus
 def auto_lum_contrast(array) -> np.ndarray:
     # Lum parfaite = 127.5, contraste parfait = 63.75
+    lum = luminance(array)
+    std = contrast(array)
+    array = ((array - lum) / std) * 63.75 + 127.5
+    return np.clip(array, 0, 255)
 
 if __name__ == '__main__':
     array = load("data/ski.jpg")
     print(array.shape)
-    array_nb = get_chanel(array, 1)
-    array_crop = crop(array_nb, 50, 100, 150, 200)
-    array_divide = divide(array_nb, 4)
+    print(luminance(array), contrast(array))
+    array_green = get_chanel(array, 1)
+    array_crop = crop(array_green, 50, 100, 150, 200)
+    array_divide = divide(array_green, 4)
     array_transpose = transpose(array_divide)
-    save(array_transpose, "data/out.jpg")
+    array_nb = convert_nb(array)
+    array_auto = auto_lum_contrast(array)
+    save(array_auto, "data/out.jpg")
