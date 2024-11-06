@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import scipy.optimize as opt
 
 np.random.seed(0)
-noise = 0
+noise = 10
 
 def f(x):
     delta = (np.random.rand(x.shape[0]) - 0.5) * noise
@@ -37,6 +37,18 @@ d = weight3[3]
 print(conv3)
 
 plt.plot(x, poly3(x, a, b, c, d), color="green")
+
+def xsinx(x, a, b, c):
+    return a*x * np.sin(b*x) +c
+
+weight2, conv2 = opt.curve_fit(xsinx, x ,y)
+print(weight2)
+a = weight2[0]
+b = weight2[1]
+c = weight2[2]
+print(conv2)
+
+plt.plot(x, xsinx(x, a, b, c), color="orange")
 plt.show()
 
 # TP
