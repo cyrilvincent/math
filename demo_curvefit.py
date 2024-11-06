@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.optimize as opt
+import scipy.integrate as integrate
 
 np.random.seed(0)
 noise = 10
@@ -48,8 +49,18 @@ b = weight2[1]
 c = weight2[2]
 print(conv2)
 
+def abs_xsinx(x, a, b, c):
+    return np.abs(xsinx(x, a, b, c))
+
+surface = integrate.quad(abs_xsinx, 0, 10, args=(a, b, c))
+print(surface)
+
+
+
 plt.plot(x, xsinx(x, a, b, c), color="orange")
 plt.show()
+
+
 
 # TP
 # Polynome degré 4
