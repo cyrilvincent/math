@@ -11,6 +11,7 @@ tanha = np.tanh(a)
 diff = sina - tanha
 print(diff)
 print(np.max(diff))
+print(diff[diff > 0])
 
 print(diff.ndim, diff.shape, diff.size, diff.dtype)
 

@@ -14,3 +14,13 @@ loyers_predicted = 30.66 * surfaces
 
 mse = np.mean((loyers_predicted - loyers) ** 2)
 print(np.sqrt(mse))
+
+max = 200
+predicat = (surfaces < max) & (surfaces > 10)
+print(predicat)
+loyers_filtered = loyers[predicat]
+surfaces_filtered = surfaces[predicat]
+
+
+
+
