@@ -21,3 +21,7 @@ for index, value in enumerate(diff):
 
 var = 10
 print(diff[::10])
+
+# Afficher le sin, la tanh et diff
+# Dans le même graphique
+# Dans 3 subplots
