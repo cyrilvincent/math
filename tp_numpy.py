@@ -25,3 +25,15 @@ print(diff[::10])
 # Afficher le sin, la tanh et diff
 # Dans le même graphique
 # Dans 3 subplots
+
+import matplotlib.pyplot as plt
+
+plt.subplot(311)
+plt.plot(a, sina, color="red")
+plt.title("Sin")
+plt.subplot(312)
+plt.plot(a, tanha)
+plt.title("Tanh")
+plt.subplot(313)
+plt.plot(a, diff, color="green")
+plt.show()

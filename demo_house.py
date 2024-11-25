@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 data = np.load("data/house/house.npz")
 print(data)
@@ -20,6 +21,9 @@ predicat = (surfaces < max) & (surfaces > 10)
 print(predicat)
 loyers_filtered = loyers[predicat]
 surfaces_filtered = surfaces[predicat]
+
+plt.scatter(surfaces, loyers)
+plt.show()
 
 
 
