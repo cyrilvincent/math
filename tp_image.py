@@ -1,20 +1,33 @@
 from PIL import Image
 import numpy as np
 
-im = Image.open("data/ski.jpg")
-array = np.asarray(im).astype(np.float64)
-print(array.shape)
+def open(path):
+    im = Image.open("data/ski.jpg")
+    array = np.asarray(im).astype(np.float64)
+    return array
 
-red = array[:,:,0]
-red = red.T
+def save(array, path):
+    dest = Image.fromarray(array.astype(np.uint8)).convert("RGB")
+    dest.save(path)
 
-dest = Image.fromarray(red.astype(np.uint8)).convert("RGB")
-dest.save("data/out.png")
+def get_chanel(array, num):
+    return array[:,:,num]
 
-# Créer la fonction open(path)
-# Créer la fonction save(path)
-# get_chanel(nb)
-# transpose
-# crop(north, south, east, west)
-# reduce(factor)
+def transpose(array):
+    return np.transpose(array, (1, 0, 2))
+
+def crop(array, north, south, east, west):
+    return array[north:array.shape[0]-south, east:-west]
+
+def reduce(array, factor):
+    return array[::factor, ::factor]
+
+
+if __name__ == '__main__':
+    array = open("data/ski.jpg")
+    red = get_chanel(array, 0)
+    arrayt = transpose(array)
+    cropped = crop(array,50,100, 150,200)
+    reduced = reduce(array, 2)
+    save(reduced,"data/out.png")
 
