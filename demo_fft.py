@@ -7,7 +7,6 @@ imag = 1j
 print(imag ** 2)
 print(c + c2)
 
-
 signal = np.zeros(10)
 signal[1] = 1
 
