@@ -36,6 +36,14 @@ def vertical_profile(array):
     array = black_white(array)
     return np.mean(array, axis=1)
 
+def auto_lum_contrast(array):
+    lum = luminance(array)
+    con = contrast(array)
+    array = (array - lum) / con
+    array = array * 255/4 + 255/2
+    array = np.clip(array,0,255)
+    return array
+
 
 
 if __name__ == '__main__':
@@ -47,7 +55,8 @@ if __name__ == '__main__':
     cropped = crop(array,50,100, 150,200)
     reduced = reduce(array, 2)
     bw = black_white(array)
-    save(bw,"data/out.png")
+    auto = auto_lum_contrast(array)
+    save(auto,"data/out.png")
 
     array2 = open("data/rond_blanc.jpg")
     profiled = vertical_profile(array2)
