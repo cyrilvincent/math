@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as stats
 import scipy.optimize as opt
+import scipy.integrate as integrate
 
 data = np.load("data/house/house.npz")
 print(data)
@@ -39,6 +40,9 @@ plt.scatter(surfaces_filtered, loyers_filtered)
 plt.plot(x, y, color="red")
 plt.plot(x, poly2(x, weight2[0], weight2[1], weight2[2]), color="green")
 plt.show()
+
+area, error = integrate.quad(np.tanh,0,1)
+print(area, error)
 
 
 
