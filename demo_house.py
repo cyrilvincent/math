@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import scipy.stats as stats
 
 data = np.load("data/house/house.npz")
 print(data)
@@ -17,12 +18,19 @@ mse = np.mean((loyers_predicted - loyers) ** 2)
 print(np.sqrt(mse))
 
 max = 200
-predicat = (surfaces < max) & (surfaces > 10)
+predicat = surfaces < max
 print(predicat)
 loyers_filtered = loyers[predicat]
 surfaces_filtered = surfaces[predicat]
 
+slope, intercept, rvalue, pvalue, stderr = stats.linregress(surfaces, loyers)
+print(slope, intercept, rvalue, pvalue, stderr)
+
+x = np.arange(400)
+y = slope * x + intercept
+
 plt.scatter(surfaces, loyers)
+plt.plot(x, y, color="red")
 plt.show()
 
 
