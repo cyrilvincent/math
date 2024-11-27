@@ -3,6 +3,7 @@ import sklearn.neighbors as nn
 import sklearn.model_selection as ms
 import sklearn.preprocessing as pp
 import sklearn.neighbors as nn
+import sklearn.ensemble as rf
 import numpy as np
 
 df = pd.read_csv("data/breast-cancer/data.csv", index_col="id")
