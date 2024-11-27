@@ -23,13 +23,13 @@ print(predicat)
 loyers_filtered = loyers[predicat]
 surfaces_filtered = surfaces[predicat]
 
-slope, intercept, rvalue, pvalue, stderr = stats.linregress(surfaces, loyers)
+slope, intercept, rvalue, pvalue, stderr = stats.linregress(surfaces_filtered, loyers_filtered)
 print(slope, intercept, rvalue, pvalue, stderr)
 
-x = np.arange(400)
+x = np.arange(200)
 y = slope * x + intercept
 
-plt.scatter(surfaces, loyers)
+plt.scatter(surfaces_filtered, loyers_filtered)
 plt.plot(x, y, color="red")
 plt.show()
 
