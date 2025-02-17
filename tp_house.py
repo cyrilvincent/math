@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 dico = np.load("data/house/house.npz")
 print(dico)
@@ -41,6 +42,9 @@ def f(x):
 print(f(rnd[rnd>0.5]))
 rnd.sort()
 print(rnd)
+
+plt.scatter(surfaces, loyers)
+plt.show()
 
 # Créer le tableau loyers_sorted
 # Prendre les 10 derniers loyers et les afficher
