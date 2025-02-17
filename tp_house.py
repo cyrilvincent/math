@@ -39,8 +39,8 @@ def f(x):
     return 2 * x + 1
 
 print(f(rnd[rnd>0.5]))
-
-print(rnd.sort())
+rnd.sort()
+print(rnd)
 
 # Créer le tableau loyers_sorted
 # Prendre les 10 derniers loyers et les afficher
@@ -48,3 +48,29 @@ print(rnd.sort())
 # Afficher les loyers d'index impairs
 # Afficher les loyers dans l'ordre inverse
 # Filtrer les loyers et surfaces > loyer moyen
+# Créer la fonction f(x) = x ** 2 - 2 + x + 1 et appliquer cette fonction aux loyers
+# Créer la fonction g(x) = moyenne_tarif_m2 * x et appliquer cette fonction aux surfaces
+
+loyers_sorted = loyers.copy()
+loyers_sorted.sort()
+print(loyers_sorted[-10:])
+print(loyers_sorted[10:31:2])
+print(loyers[1::2])
+print(loyers_sorted[::-1])
+average = np.mean(loyers)
+average_m2 = np.mean(loyers_m2)
+loyers_filtered = loyers[loyers > average]
+surfaces_filtered = surfaces[loyers > average]
+print(loyers_filtered, surfaces_filtered)
+
+def f(x):
+    return x ** 2 + x + 1
+
+def g(x):
+    return x * average_m2
+
+print(f(loyers))
+
+print(loyers / g(surfaces))
+
+
