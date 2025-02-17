@@ -77,4 +77,4 @@ print(f(loyers))
 
 print(loyers / g(surfaces))
 
-
+# Afficher g(surfaces) en vert
