@@ -43,8 +43,6 @@ print(f(rnd[rnd>0.5]))
 rnd.sort()
 print(rnd)
 
-plt.scatter(surfaces, loyers)
-plt.show()
 
 # Créer le tableau loyers_sorted
 # Prendre les 10 derniers loyers et les afficher
@@ -78,3 +76,8 @@ print(f(loyers))
 print(loyers / g(surfaces))
 
 # Afficher g(surfaces) en vert
+
+plt.scatter(surfaces, loyers)
+plt.plot(surfaces, g(surfaces), color="red")
+plt.show()
+
