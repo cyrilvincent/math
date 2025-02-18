@@ -2,9 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import mylibrary as lib
 
-
-
-
 dico = np.load("data/house/house.npz")
 print(dico)
 loyers = dico["np_loyers"]
@@ -84,4 +81,6 @@ print(loyers / g(surfaces))
 plt.scatter(surfaces, loyers)
 plt.plot(surfaces, g(surfaces), color="red")
 plt.show()
+
+
 
