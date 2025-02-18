@@ -9,3 +9,4 @@ plt.scatter(surfaces, loyers)
 plt.show()
 dataframe["loyers_m2"] = loyers / surfaces
 dataframe.to_excel("data/house/house.xlsx")
+
