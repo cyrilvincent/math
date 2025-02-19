@@ -5,6 +5,7 @@ import sklearn.preprocessing as pp
 import matplotlib.pyplot as plt
 import sklearn.neural_network as neural
 
+
 np.random.seed(0)
 df = pd.read_csv("data/breast-cancer/data.csv")
 df["random"] = np.random.rand()

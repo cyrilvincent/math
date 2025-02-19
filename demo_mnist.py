@@ -1,6 +1,7 @@
 import numpy as np
 import sklearn.neighbors as nn
 import sklearn.ensemble as rf
+import sklearn.neural_network as neural
 
 with np.load("data/mnist/mnist.npz", allow_pickle=True) as f:
     x_train, y_train = f["x_train"], f["y_train"] # 60000
@@ -10,7 +11,8 @@ print(x_train.shape, y_train.shape, x_test.shape, y_test.shape)
 x_train = x_train.reshape(-1, 28*28)
 x_test = x_test.reshape(-1, 28*28)
 
-model = rf.RandomForestClassifier()
+# model = rf.RandomForestClassifier()
+model = neural.MLPClassifier(hidden_layer_sizes=(784,500,300))
 model.fit(x_train, y_train)
 
 score = model.score(x_test, y_test)
@@ -18,14 +20,14 @@ print(score)
 
 predicted = model.predict(x_test)
 
+import matplotlib.pyplot as plt
+
+# plt.imshow(model.feature_importances_.reshape(28, 28))
+# plt.show()
 
 images = x_test.reshape((-1, 28, 28))
 select = np.random.randint(images.shape[0], size=12)
 
-import matplotlib.pyplot as plt
-
-plt.imshow(model.feature_importances_.reshape(28, 28))
-plt.show()
 
 
 for index, value in enumerate(select):
