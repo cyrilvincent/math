@@ -3,6 +3,7 @@ import sklearn.ensemble as rf
 import numpy as np
 import sklearn.preprocessing as pp
 import matplotlib.pyplot as plt
+import sklearn.neural_network as neural
 
 np.random.seed(0)
 df = pd.read_csv("data/breast-cancer/data.csv")
@@ -15,22 +16,23 @@ scaler = pp.RobustScaler()
 scaler.fit(x)
 x = scaler.transform(x)
 
-model = rf.RandomForestClassifier()
+# model = rf.RandomForestClassifier()
+model = neural.MLPClassifier(hidden_layer_sizes=(30,30,30))
 
 model.fit(x, y)
 
 ypred = model.predict(x)
 
-features = model.feature_importances_
-plt.bar(columns, features)
-plt.xticks(rotation=45)
-plt.show()
+# features = model.feature_importances_
+# plt.bar(columns, features)
+# plt.xticks(rotation=45)
+# plt.show()
 
 score = model.score(x, y)
 print(score)
 
-from sklearn.tree import export_graphviz
-export_graphviz(model.estimators_[0], out_file="data/breast-cancer/out.dot", feature_names=x.columns, class_names=["0", "1"])
+# from sklearn.tree import export_graphviz
+# export_graphviz(model.estimators_[0], out_file="data/breast-cancer/out.dot", feature_names=columns, class_names=["0", "1"])
 
 
 # x = 30 columns
