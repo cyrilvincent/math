@@ -29,6 +29,9 @@ plt.show()
 score = model.score(x, y)
 print(score)
 
+from sklearn.tree import export_graphviz
+export_graphviz(model.estimators_[0], out_file="data/breast-cancer/out.dot", feature_names=x.columns, class_names=["0", "1"])
+
 
 # x = 30 columns
 # Scaler
