@@ -8,6 +8,11 @@ dataframe = pd.read_csv("data/heartdisease/data_cleaned_up.csv")
 y = dataframe["num"]
 x = dataframe.drop("num", axis=1)
 
+pd.set_option('display.max_columns', None)
+pd.set_option('display.max_rows', None)
+pd.set_option('display.width', 1000)
+print(dataframe.corr())
+
 scaler = pp.StandardScaler()
 scaler.fit(x)
 x = scaler.transform(x)
