@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 data = np.load("data/house/house.npz")
 print(data)
@@ -30,6 +31,10 @@ surfaces_filtered = surfaces[predicate]
 loyers_filtered = loyers[predicate]
 
 print(surfaces_filtered)
+
+# plt.subplot(211)
+plt.scatter(surfaces, loyers, color="blue")
+plt.show()
 
 # Afficher le nuage de point surfaces / loyers
 # Idem pour les surfaces et loyers filtrés
