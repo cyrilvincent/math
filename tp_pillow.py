@@ -1,16 +1,25 @@
 import numpy as np
 from PIL import Image # pip install Pillow
 
-im = Image.open("data/ski.jpg")
-array = np.asarray(im)
-print(array.shape, array.dtype)
-array = array.astype(np.float64)
-print(array.shape, array.dtype)
+def open(path):
+    im = Image.open(path)
+    array = np.asarray(im).astype(np.float64)
+    return array
 
-red = array[:,:,0]
+def save(array, path):
+    dest = Image.fromarray(array.astype(np.uint8)).convert("RGB")
+    dest.save(path)
 
-dest = Image.fromarray(red.astype(np.uint8)).convert("RGB")
-dest.save("data/out.jpg")
+def get_chanel(array, num):
+    return array[:,:,num]
+
+def crop(array, top, bottom, left, right):
+    return array[top:-bottom, left:-right]
+
+def sub_sampling(array, row, col):
+    return array[::row, ::col]
+
+
 
 # open(path)
 # save(array, path)
@@ -20,5 +29,8 @@ dest.save("data/out.jpg")
 # negative(array)
 # flip(array, horizontal=True)
 if __name__ == '__main__':
-    pass
-    # tests
+    array = open("data/ski.jpg")
+    red = get_chanel(array, 0)
+    cropped = crop(red, 50,100,150,200)
+    reduce = sub_sampling(array,2,2)
+    save(reduce, "data/out.png")
