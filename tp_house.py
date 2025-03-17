@@ -30,3 +30,6 @@ surfaces_filtered = surfaces[predicate]
 loyers_filtered = loyers[predicate]
 
 print(surfaces_filtered)
+
+# Afficher le nuage de point surfaces / loyers
+# Idem pour les surfaces et loyers filtrés
