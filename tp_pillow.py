@@ -28,6 +28,11 @@ def sub_sampling(array, row, col):
 # sub_sampling(array, 2,2) si j'ai 1000x500 => 500x250
 # negative(array)
 # flip(array, horizontal=True)
+# luminance = mean = 127.5
+# contraste = std = 255/4
+# profil(horizontal=True)
+# black_white =
+# auto_lum_contrast = ((x - mean) / std) * 255/4 + 127.5 : sans clip, puis avec np.clip avec sigmoid
 if __name__ == '__main__':
     array = open("data/ski.jpg")
     red = get_chanel(array, 0)

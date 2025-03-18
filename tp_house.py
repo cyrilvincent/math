@@ -17,10 +17,11 @@ print(loyers.size, surfaces.size)
 # Filtrer loyer ET surfaces par rapport à surface < 200
 
 loyer_per_m2 = loyers / surfaces
-print(loyer_per_m2)
-print(np.min(loyers), np.max(loyers), np.mean(loyers))
+# print(loyer_per_m2)
+print(np.min(loyers), np.max(loyers), np.mean(loyers), np.std(loyers), np.median(loyers))
 print(np.min(surfaces), np.max(surfaces), np.mean(surfaces))
 print(np.min(loyer_per_m2), np.max(loyer_per_m2), np.mean(loyer_per_m2))
+
 
 surf200 = surfaces[surfaces > 200]
 nb = surf200.size
@@ -30,7 +31,7 @@ predicate = surfaces < 200
 surfaces_filtered = surfaces[predicate]
 loyers_filtered = loyers[predicate]
 
-print(surfaces_filtered)
+# print(surfaces_filtered)
 
 # plt.subplot(211)
 plt.scatter(surfaces, loyers, color="blue")
