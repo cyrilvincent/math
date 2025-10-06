@@ -3,11 +3,14 @@ age = 64
 
 # < 62 ans taux_retraite = 0
 # > 67 ans taux_retraite = 1
-# Si né > 1968 il faut avoir 172 trimestre
+# Si né > 1968 il faut avoir 172 trimestres
 # Règle 62 ans + nb trimestre manquant => afficher l'age de retraite à taux plein
 
 if age < 62:
     print("Pas de retraite")
+    trimestre_manquant = 172 - nb_trimestre
+    age_prevu = min(age + trimestre_manquant / 4, 67)
+    print(f"Age prévu: {age_prevu}")
 elif age > 67:
     print("Retraite à taux plein")
 else:
