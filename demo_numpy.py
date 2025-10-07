@@ -51,3 +51,17 @@ print(v10[-10:])
 print(v10[1:-1:3])
 n = 5
 print(v10[n:-n])
+
+print(v10[np.sin(v10) > 0.5])
+
+x = np.arange(100)
+y = np.sin(x)
+print(y[x > 50])
+filter = x > 50 # & AND, | OR ! NOT ^ XOR
+print(filter)
+result = y[filter]
+
+print(x[(x > 50) & (x < 80)])
+print(x[(x > 50) | (x % 2 == 0)])
+
+# np.savez("toto.npz", x=x)
