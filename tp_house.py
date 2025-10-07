@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 data = np.load("data/house/house.npz")
 print(data)
@@ -25,3 +26,6 @@ result = loyers[(loyers < 2500) & (surfaces > 100)]
 print(result.size)
 print(loyers[(surfaces > 200) | (loyers > 10000)])
 np.savez("save.npz", result=result)
+
+plt.scatter(surfaces, loyers)
+plt.show()
