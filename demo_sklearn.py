@@ -29,17 +29,18 @@ scaler.fit(x)
 xtrain = scaler.transform(xtrain)
 xtest = scaler.transform(xtest)
 
-model = rf.RandomForestClassifier()
+# model = rf.RandomForestClassifier()
+model = neural.MLPClassifier(hidden_layer_sizes=(30,30,30))
 model.fit(xtrain, ytrain)
 ypredicted = model.predict(xtest)
 
 score = model.score(xtest, ytest)
 print(f"Score: {score:.2f}")
 
-print(model.feature_importances_)
-plt.bar(x.columns, model.feature_importances_)
-plt.xticks(rotation=45)
-plt.show()
+# print(model.feature_importances_)
+# plt.bar(x.columns, model.feature_importances_)
+# plt.xticks(rotation=45)
+# plt.show()
 
 
 

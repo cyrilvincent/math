@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.optimize as opt
 import scipy.integrate as integrate
+import scipy.interpolate as interpolate
 
 # pip install scipy
 
@@ -48,3 +49,4 @@ plt.subplot(313)
 print(x)
 plt.plot(x, y3)
 plt.show()
+
