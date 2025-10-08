@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import scipy.stats as stats
 
 data = np.load("data/house/house.npz")
 print(data)
@@ -27,5 +28,10 @@ print(result.size)
 print(loyers[(surfaces > 200) | (loyers > 10000)])
 np.savez("save.npz", result=result)
 
+slope, intercept, rvalue, pvalue, stderr = stats.linregress(surfaces, loyers)
+print(rvalue, pvalue)
+x = np.arange(400)
+y = slope * x + intercept
 plt.scatter(surfaces, loyers)
+plt.plot(x, y, color="red")
 plt.show()
