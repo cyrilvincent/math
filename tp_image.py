@@ -1,6 +1,7 @@
 # pip install pillow
 from PIL import Image
 import numpy as np
+import matplotlib.pyplot as plt
 
 def load(path):
     im = Image.open(path)
@@ -23,6 +24,20 @@ def lum(array, delta):
 def reduce(array, nb):
     return array[::nb,::nb]
 
+def get_luminance(array):
+    return np.mean(array)
+
+def get_contrast(array):
+    return np.std(array)
+
+def auto_normalize(array):
+    mean = np.mean(array)
+    std = np.std(array)
+    return np.clip(((array - mean) / std) * (255 / 4) + 127.5,0,255)
+
+def profil(array, axis):
+    return np.mean(array, axis=axis)
+
 
 
 # Obtenir les canaux red, green ou blue
@@ -38,8 +53,18 @@ def reduce(array, nb):
 if __name__ == '__main__':
     array = load("data/ski.jpg")
     print(array.shape)
+    print(get_luminance(array), get_contrast(array))
     red = get_chanel(array, 0)
     croped = crop(red, 200,300,400,500)
     lum20 = lum(array, 1.2)
     reduce2 = reduce(array,2)
-    save(reduce2, "data/out.jpg")
+    auto = auto_normalize(array)
+    print(get_luminance(auto), get_contrast(auto))
+    save(auto, "data/out.jpg")
+    array = load("data/rond_blanc.jpg")
+    prof = profil(red, 0)
+    plt.subplot(211)
+    plt.imshow(red, cmap="Reds")
+    plt.subplot(212)
+    plt.plot(prof)
+    plt.show()
