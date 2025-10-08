@@ -31,6 +31,10 @@ def reduce(array, nb):
 # Augmenter la luminosite d'une image de 10%
 # np.clip
 
+# Calculer luminance et le contraste (mean, std)
+# Calculer les 2 profils et l'afficher en matplotlib
+# Bonus : Autonormaliser l'image => lum=255/2, contraste=255/4, ((pix - mean) / std) * 255 /4 + 255 / 2
+
 if __name__ == '__main__':
     array = load("data/ski.jpg")
     print(array.shape)
