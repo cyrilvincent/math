@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as stats
+import scipy.optimize as opt
 
 data = np.load("data/house/house.npz")
 print(data)
@@ -28,10 +29,17 @@ print(result.size)
 print(loyers[(surfaces > 200) | (loyers > 10000)])
 np.savez("save.npz", result=result)
 
+def f(x, a, b, c):
+    return a * x ** 2 + b * x + c
+
 slope, intercept, rvalue, pvalue, stderr = stats.linregress(surfaces, loyers)
 print(rvalue, pvalue)
+result = opt.curve_fit(f,surfaces, loyers)
+print(result)
 x = np.arange(400)
 y = slope * x + intercept
+y2 = f(x,result[0][0],result[0][1],result[0][2])
 plt.scatter(surfaces, loyers)
 plt.plot(x, y, color="red")
+plt.plot(x, y2, color="maroon")
 plt.show()
