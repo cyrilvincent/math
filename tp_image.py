@@ -3,17 +3,45 @@ from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
 
-im = Image.open("data/mug.jpg")
-array = np.asarray(im).astype(np.float64)
-print(array.shape)
+def load(path):
+    im = Image.open(path)
+    array = np.asarray(im).astype(np.float64)
+    return array
 
-red = array[:,:,0]
+def save(array, path):
+    dest = Image.fromarray(array.astype(np.uint8)).convert("RGB")
+    dest.save(path)
 
-dest = Image.fromarray(red.astype(np.uint8)).convert("RGB")
-dest.save("data/out.png")
+def get_chanel(array, num):
+    return array[:,:,num]
 
-plt.imshow(red, cmap="Greys_r")
-plt.show()
+def show(array):
+    plt.imshow(array, cmap="Greys_r")
+    plt.show()
+
+def crop(array, north, south, east, west):
+    return array[north:-south,west:-east]
+
+def reduce(array, factor):
+    return array[::factor,::factor]
+
+def flip(array):
+    return array[::-1]
+
+def superpose(a1, a2):
+    return (a1 + a2) / 2
+
+
+if __name__ == '__main__':
+    array = load("data/mug.jpg")
+    red = get_chanel(array, 0)
+    cropped = crop(red,100,50,200,50)
+    reduced = reduce(red,2)
+    flipped = flip(red)
+    superposed = superpose(red, flipped)
+    save(superposed, "data/out.png")
+    show(superposed)
+
 
 # Faire une fonction get_chanel(array, num) et qui me retourne la matrice du chanel, par exemple get_chanel(array, 0) -> red
 # Créer les fonctions load & save qui charge et sauvegarde l'image
