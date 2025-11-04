@@ -1,3 +1,5 @@
+import math
+
 def factorielle(n: int) -> int:
     """
     Calcul la factorielle de n!
@@ -34,7 +36,7 @@ def is_prime(n: int) -> bool:
     if n < 2:
         return False
     else:
-        for div in range(2, n):
+        for div in range(2, int(math.sqrt(n) + 1)):
             if n % div == 0:
                 return False
         return True
