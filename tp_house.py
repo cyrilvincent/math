@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import scipy.stats as stats
 
 data = np.load("data/house/house.npz")
 print(data)
@@ -11,9 +12,19 @@ print(surfaces)
 # Afficher en console le min, max, sum des loyers
 # Créer le tableau loyer_m2
 
-plt.scatter(surfaces, loyers)
-plt.show()
+
 
 print(np.min(loyers), np.max(loyers))
 loyer_m2 = loyers / surfaces
 print(np.min(loyer_m2), loyer_m2.max())
+
+slope, intercept, rvalue, pvalue, stderr = stats.linregress(surfaces, loyers)
+print(slope, intercept, rvalue, pvalue, stderr)
+
+x = np.arange(400)
+y = slope * x + intercept
+
+plt.scatter(surfaces, loyers)
+plt.plot(x, y, color="red")
+plt.show()
+
