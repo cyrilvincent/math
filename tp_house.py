@@ -2,6 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as stats
 import scipy.optimize as opt
+import sklearn.neighbors as n
+
+n.KNeighborsClassifier(n)
 
 data = np.load("data/house/house.npz")
 print(data)
