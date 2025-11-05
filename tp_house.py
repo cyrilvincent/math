@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import scipy.stats as stats
 import scipy.optimize as opt
 import sklearn.neighbors as n
+import sklearn.pre
 
 n.KNeighborsClassifier(n)
 
