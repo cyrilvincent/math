@@ -3,7 +3,9 @@ import matplotlib.pyplot as plt
 import scipy.stats as stats
 import scipy.optimize as opt
 import sklearn.neighbors as n
-import sklearn.pre
+import sklearn.model_selection as ms
+
+ms.train_test_split()
 
 n.KNeighborsClassifier(n)
 
