@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as stats
+import scipy.optimize as opt
 
 data = np.load("data/house/house.npz")
 print(data)
@@ -8,6 +9,8 @@ surfaces = data["np_surfaces"]
 loyers = data["np_loyers"]
 print(surfaces)
 
+
+opt.curve_fit()
 # Afficher le nuage de points surfaces, loyers
 # Afficher en console le min, max, sum des loyers
 # Créer le tableau loyer_m2
@@ -27,4 +30,5 @@ y = slope * x + intercept
 plt.scatter(surfaces, loyers)
 plt.plot(x, y, color="red")
 plt.show()
+
 
