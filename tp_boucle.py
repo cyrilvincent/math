@@ -2,3 +2,26 @@
 # Saisir un nombre n et faire un compteur de n à 0
 # Saisir n est calculer n! : 5!=5*4*3*2=120
 # Difficile : Dire si n est premier, tout nb >= 2 est premier sauf si possède un diviseur entre 2 et nb-1
+
+# n = int(input("Saisir un nb: "))
+# for i in range(n,0,-1):
+#     print(i)
+
+n = 5
+result = 1
+for i in range(2,6):
+    result *= i
+print(result)
+
+n = 13
+is_prime = True
+if n < 2:
+    print("Non premier")
+else:
+    for div in range(2,n):
+        if n % div == 0:
+            print("Non premier")
+            is_prime = False
+            break
+    if is_prime:
+        print("Premier")
