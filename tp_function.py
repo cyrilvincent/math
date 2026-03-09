@@ -7,12 +7,18 @@ def factorielle(n: int) -> int:
     :param n: le param
     :return: n!
     """
-    pass
+    result = 1
+    for i in range(2, n+1):
+        result *= i
+    return result
 
 def is_prime(n: int) -> bool:
-    pass
+    if n < 2:
+        return False
+    for div in range(2, n):
+        if n % div == 0:
+            return False
+    return True
 
-# result = add(3,2)
-# res = factorielle(3)
-# print(result)
-# print(add(3,2))
+print(factorielle(5))
+print(is_prime(524287))
