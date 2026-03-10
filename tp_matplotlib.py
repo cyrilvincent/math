@@ -31,3 +31,4 @@ plt.scatter(surfaces, loyers)
 plt.subplot(2,1,2)
 plt.scatter(surfaces175, loyers175)
 plt.show()
+
