@@ -9,11 +9,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
+pd.set_option("display.max_columns", None)
+pd.set_option("display.width", None)
+
 df = pd.read_csv("data/mesures/mesures.csv", index_col="T")
 
 df["PC"] = df["AM"] * df["VM"]
 df["VDiff"] = np.abs(df["VM"] - df["VT"])
-print(df)
+print(df.describe())
 
 plt.subplot(2,2,1)
 plt.plot(df.index, df["AM"])

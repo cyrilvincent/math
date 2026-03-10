@@ -38,3 +38,15 @@ filter = rnd10>0.5
 print(filter)
 print(a10[filter])
 
+zeros = np.zeros(10)
+ones = np.ones(10)
+print(ones / zeros)
+
+inf = np.inf
+print(inf * 2)
+nan = np.nan # Not a Number
+anan = np.array([1,2,3,np.nan,5])
+print(anan)
+print(anan + 1)
+print(np.nansum(anan))
+
