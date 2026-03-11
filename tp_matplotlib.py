@@ -5,6 +5,7 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
+import scipy.stats as stats
 
 x = np.arange(-5,5,0.1)
 
@@ -21,14 +22,26 @@ data = np.load("data/house/house.npz")
 surfaces = data["np_surfaces"]
 loyers = data["np_loyers"]
 
+slope, intercept, rvalue, pvalue, _ = stats.linregress(surfaces, loyers)
+print(rvalue, pvalue)
+
+def f(x, slope, intercept):
+    return slope * x + intercept
+
 filter = surfaces < 175
 surfaces175 = surfaces[filter]
 loyers175 = loyers[filter]
 
+
+
 plt.figure(2)
 plt.subplot(2,1,1)
 plt.scatter(surfaces, loyers)
+plt.plot(surfaces, f(surfaces, slope, intercept), color="red")
 plt.subplot(2,1,2)
+slope, intercept, rvalue, pvalue, _ = stats.linregress(surfaces175, loyers175)
+print(rvalue, pvalue)
 plt.scatter(surfaces175, loyers175)
+plt.plot(surfaces175, f(surfaces175, slope, intercept), color="red")
 plt.show()
 

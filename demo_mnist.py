@@ -16,17 +16,15 @@ xtrain = xtrain.reshape(-1, 28*28) # 764
 xtest = xtest.reshape(-1, 28*28)
 
 # model = nn.KNeighborsClassifier()
-model = rf.RandomForestClassifier()
+# model = rf.RandomForestClassifier()
+model = neural.MLPClassifier((500,200,100))
 model.fit(xtrain, ytrain)
 ypredicted = model.predict(xtest)
 score = model.score(xtest, ytest)
 print(f"Score: {score:.3f}")
 
-print(metrics.classification_report(y_true=ytest, y_pred=ypredicted))
-print(metrics.confusion_matrix(y_true=ytest, y_pred=ypredicted))
-
-plt.matshow(model.feature_importances_.reshape(28, 28))
-plt.show()
+# plt.matshow(model.feature_importances_.reshape(28, 28))
+# plt.show()
 
 xtest = xtest.reshape(-1, 28, 28)
 select = np.random.randint(xtest.shape[0], size=12)
