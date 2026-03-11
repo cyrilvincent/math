@@ -36,5 +36,10 @@ print(all_df.head(10))
 cp = 38250
 result = all_df[all_df["code_postal"] == cp]
 print(result)
+result.to_csv("data/communes/result.csv", index=False)
+
+import datetime
+
+print(datetime.datetime.now())
 
 
