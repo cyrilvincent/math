@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 data = np.load("data/house/house.npz")
 print(data)
@@ -30,3 +31,9 @@ filter = surfaces < 25
 surfaces_inf_25 = surfaces[filter]
 loyers_inf_25 = loyer_m2[filter]
 print(loyers_inf_25.min(), np.max(loyers_inf_25), loyers_inf_25.sum() / loyers_inf_25.size)
+
+plt.title("Paris")
+plt.scatter(surfaces, loyers, label="surfaces")
+plt.legend()
+plt.savefig("data/house/house.png")
+plt.show()
