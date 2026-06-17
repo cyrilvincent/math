@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 x = np.arange(0, 10, 0.1)
-factor = 100
+factor = 1
 noise = (np.random.rand(len(x)) - 0.5) * 2 * factor
 def f(x):
     return 2.5 * x * np.sin(0.7 * x) + 2 + noise
@@ -40,3 +40,5 @@ plt.plot(x, poly3(x, weight3[0], weight3[1], weight3[2], weight3[3]), color="mar
 plt.plot(x, xsinx(x, weight_sin[0], weight_sin[1], weight_sin[2]), color="black")
 plt.scatter(x, y)
 plt.show()
+
+# Calculer la surface de 0 à 5 de poly3
