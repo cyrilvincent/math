@@ -9,9 +9,13 @@ depts["dept_id"] = depts["id"]
 
 communes = pd.read_csv("data/communes/communes.csv", low_memory=False)
 
-df = depts.join(communes, on="dept_id", rsuffix="_right")
-print(df)
+
+df = communes.join(depts, on="dept_id", rsuffix="_right")
 df.to_excel("data/communes/out.xlsx")
+
+gre = df[df["id"] == 38185]
+
+print(gre)
 
 # join( on="dept_id")
 
