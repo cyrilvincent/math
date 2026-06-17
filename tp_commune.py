@@ -1,8 +1,17 @@
 import pandas as pd
 
+pd.set_option('display.max_columns', None)
+pd.set_option('display.max_rows', None)
+pd.set_option('display.width', 1000)
+
 depts = pd.read_csv("data/communes/dept.csv")  #, index_col="id")
-depts["dep_id"] = depts["id"]
-print(depts)
+depts["dept_id"] = depts["id"]
+
+communes = pd.read_csv("data/communes/communes.csv", low_memory=False)
+
+df = depts.join(communes, on="dept_id", rsuffix="_right")
+print(df)
+df.to_excel("data/communes/out.xlsx")
 
 # join( on="dept_id")
 
