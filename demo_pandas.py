@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 # pip install openpyxl
 
-df = pd.read_csv("data/house/house.csv",)
+df = pd.read_csv("data/house/house.csv",lineterminator="\n\f")
 
 
 # df.hist(bins=50)
